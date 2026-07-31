@@ -886,6 +886,85 @@
         background: rgba(255, 255, 255, 0.015);
       }
 
+      /* Comparison */
+      .compare-wrap {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--bg-card);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      }
+      .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      .compare-table th,
+      .compare-table td {
+        text-align: left;
+        padding: 0.95rem 1.1rem;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      .compare-table thead th {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--dim);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .compare-table thead th.us {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .compare-table tbody th {
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        width: 26%;
+        background: rgba(255, 255, 255, 0.015);
+      }
+      .compare-table td {
+        color: var(--muted);
+        width: 37%;
+      }
+      .compare-table td.us {
+        color: rgba(255, 255, 255, 0.92);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .compare-table tr:last-child th,
+      .compare-table tr:last-child td {
+        border-bottom: 0;
+      }
+      .compare-table tr:hover td,
+      .compare-table tr:hover th {
+        background: rgba(255, 255, 255, 0.035);
+      }
+      .compare-table .good {
+        color: #b7f5c8;
+      }
+      .compare-table .bad {
+        color: #f0b4b4;
+      }
+      .compare-note {
+        margin-top: 0.95rem;
+        color: var(--dim);
+        font-size: 0.86rem;
+        max-width: 58rem;
+      }
+      @media (max-width: 700px) {
+        .compare-table th,
+        .compare-table td {
+          padding: 0.8rem 0.75rem;
+          font-size: 0.84rem;
+        }
+        .compare-table tbody th {
+          width: auto;
+        }
+      }
+
       /* FAQ */
       .faq-list {
         max-width: 48rem;
@@ -1075,6 +1154,7 @@
         </a>
         <nav class="nav-links" aria-label="Primary">
           <a href="#why">Why</a>
+          <a href="#compare">Compare</a>
           <a href="#how">How</a>
           <a href="#install">Install</a>
           <a href="#faq">FAQ</a>
@@ -1285,7 +1365,127 @@
 
       <hr class="divider wrap" />
 
-      <!-- 3. How it works -->
+      <!-- 3. Comparison -->
+      <section class="section" id="compare">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="kicker">Comparison</div>
+            <h2>Why pay $799 for a privacy light?</h2>
+            <p>
+              Interview Coder and UltraCode charge hundreds for a closed tool
+              that asks for mic and screen-recording permission. Open Interview
+              Assistant is free, open source, and never turns on the OS privacy
+              indicator.
+            </p>
+          </div>
+          <div
+            class="compare-wrap"
+            role="region"
+            aria-label="Feature comparison"
+          >
+            <div class="table-wrap" style="border-top: 0">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Capability</th>
+                    <th class="us" scope="col">Open Interview Assistant</th>
+                    <th scope="col">Interview Coder / UltraCode</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Price</th>
+                    <td class="us">
+                      <span class="good">Free</span> — bring your own API key
+                    </td>
+                    <td><span class="bad">~$799</span> closed paid product</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Open source</th>
+                    <td class="us">
+                      <span class="good">Yes</span> — Apache 2.0, fork and tweak
+                    </td>
+                    <td><span class="bad">No</span> — closed binary</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Microphone permission</th>
+                    <td class="us">
+                      <span class="good">Never requested</span>
+                    </td>
+                    <td><span class="bad">Required</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Screen recording permission</th>
+                    <td class="us">
+                      <span class="good">Never requested</span>
+                    </td>
+                    <td><span class="bad">Required</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">OS privacy indicator</th>
+                    <td class="us">
+                      <span class="good">Stays off</span> — no orange/green
+                      light
+                    </td>
+                    <td>
+                      <span class="bad">Lights up</span> — can make interviewers
+                      suspicious
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">How it reads the question</th>
+                    <td class="us">
+                      Chrome extension reads the
+                      <strong style="color: #fff">HTML DOM text</strong> from
+                      CodeSignal, HackerRank, LeetCode, and similar pages
+                    </td>
+                    <td>Mic + screen capture / pixel screenshots</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Answer quality input</th>
+                    <td class="us">
+                      Clean page text — better signal than screenshots
+                    </td>
+                    <td>Noisy pixels and OCR-style capture</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Invisible overlay</th>
+                    <td class="us">
+                      Local always-on-top panel with content protection; hidden
+                      from screenshare
+                    </td>
+                    <td>Vendor-controlled closed overlay</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Customizable</th>
+                    <td class="us">
+                      Change shortcuts, prompts, layout, opacity — ship your own
+                      variant
+                    </td>
+                    <td>Locked product surface</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Your keys / your machine</th>
+                    <td class="us">
+                      Runs locally with your Anthropic key — no app account
+                    </td>
+                    <td>Paid vendor stack</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="compare-note">
+            Competitor pricing and permission behavior based on publicly
+            marketed Interview Coder / UltraCode offerings. Always verify
+            current pricing and permissions on their sites before purchasing.
+          </p>
+        </div>
+      </section>
+
+      <hr class="divider wrap" />
+
+      <!-- 4. How it works -->
       <section class="section" id="how">
         <div class="wrap">
           <div class="section-head">

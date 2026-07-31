@@ -42,6 +42,32 @@ looking at and gives you an answer you can say out loud.
   restyle the panel, change the prompt, run it on your machine the way that works
   best for you.
 
+## vs Interview Coder / UltraCode
+
+Paid tools like **Interview Coder** and **UltraCode** often charge around
+**$799**, require **mic + screen-recording permission**, and light up the OS
+privacy indicator mid-call — which can make interviewers suspicious.
+
+Open Interview Assistant is free, open source, and never asks for those
+permissions. A Chrome extension reads the **HTML DOM text** from CodeSignal,
+HackerRank, LeetCode, and similar pages, then talks to a local invisible
+overlay that serves the answer.
+
+| | **Open Interview Assistant** | **Interview Coder / UltraCode** |
+| --- | --- | --- |
+| **Price** | **Free** — bring your own API key | ~**$799** closed paid product |
+| **Open source** | **Yes** — Apache 2.0, fork and tweak | No — closed binary |
+| **Microphone permission** | **Never requested** | Required |
+| **Screen recording permission** | **Never requested** | Required |
+| **OS privacy indicator** | **Stays off** — no orange/green light | Lights up — can raise suspicion |
+| **How it reads the question** | Chrome extension reads **HTML DOM text** from CodeSignal / HackerRank / LeetCode | Mic + screen capture / screenshots |
+| **Answer input quality** | Clean page text | Noisy pixels / OCR-style capture |
+| **Invisible overlay** | Local always-on-top panel with content protection; hidden from screenshare | Vendor-controlled closed overlay |
+| **Customizable** | Change shortcuts, prompts, layout, opacity | Locked product surface |
+| **Your keys / your machine** | Runs locally with your Anthropic key — no app account | Paid vendor stack |
+
+Repo: [https://github.com/harry-the-nerd/open-interview-assistant](https://github.com/harry-the-nerd/open-interview-assistant)
+
 ## How you use it
 
 Open the question in Chrome and press **`⌘⇧U`**. The extension reads the page,
