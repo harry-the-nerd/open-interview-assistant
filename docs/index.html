@@ -3,35 +3,157 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Open Interview Assistant — Invisible Interview Overlay</title>
+    <title>
+      Open Interview Assistant — Invisible Open-Source Interview Overlay
+    </title>
     <meta
       name="description"
-      content="Open-source interview overlay: invisible on screenshare and capture, no mic or system recording permission, mouse pass-through, keyboard-only. Yours to fork and tweak."
+      content="Open-source interview overlay for coding interviews. Invisible on Zoom/Meet/Teams screenshare, no mic or system recording permission (no privacy indicator light), mouse pass-through, keyboard-only. Fork it and make it yours. From DarkInterview."
     />
+    <meta
+      name="keywords"
+      content="interview overlay, open source interview assistant, coding interview AI, screenshare invisible overlay, no privacy indicator, mouse pass-through, Electron interview tool, Chrome extension interview helper, DarkInterview, LeetCode assistant"
+    />
+    <meta name="author" content="DarkInterview" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="Open Interview Assistant" />
     <link
       rel="canonical"
       href="https://harry-the-nerd.github.io/open-interview-assistant/"
     />
+    <link
+      rel="image_src"
+      href="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
+    />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Open Interview Assistant" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:title"
+      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
+    />
     <meta
       property="og:description"
-      content="Invisible on screenshare. No privacy indicator light. Open source — it belongs to you."
+      content="Invisible on screenshare. No mic or system capture — no privacy indicator light. Mouse pass-through, keyboard-only. Fully open source — it belongs to you."
     />
     <meta
       property="og:url"
       content="https://harry-the-nerd.github.io/open-interview-assistant/"
     />
     <meta property="og:site_name" content="Open Interview Assistant" />
+    <meta
+      property="og:image"
+      content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="1061" />
+    <meta
+      property="og:image:alt"
+      content="Open Interview Assistant overlay showing an interview script beside a coding problem"
+    />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Open Interview Assistant" />
+    <meta
+      name="twitter:title"
+      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
+    />
     <meta
       name="twitter:description"
-      content="Invisible on screenshare. No mic or system capture. Fork it and make it yours."
+      content="Invisible on screenshare. No mic or system capture — no privacy light. Fork it and make it yours."
     />
+    <meta
+      name="twitter:image"
+      content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Open Interview Assistant overlay showing an interview script beside a coding problem"
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website",
+            "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
+            "name": "Open Interview Assistant",
+            "description": "Open-source interview overlay that is invisible on screenshare, needs no mic or system recording permission, and is yours to fork and tweak.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://darkinterview.com/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#webpage",
+            "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
+            "name": "Open Interview Assistant — Invisible Open-Source Interview Overlay",
+            "isPartOf": {
+              "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website"
+            },
+            "primaryImageOfPage": {
+              "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image"
+            },
+            "description": "Invisible on Zoom, Meet, and Teams screenshare. No privacy indicator light. Mouse pass-through interview overlay. Open source under Apache 2.0.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ImageObject",
+            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image",
+            "url": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
+            "contentUrl": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
+            "width": 2780,
+            "height": 1844,
+            "caption": "Open Interview Assistant floating over a coding interview problem"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#app",
+            "name": "Open Interview Assistant",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "macOS, Windows, Linux",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "codeRepository": "https://github.com/harry-the-nerd/open-interview-assistant",
+            "downloadUrl": "https://github.com/harry-the-nerd/open-interview-assistant",
+            "softwareHelp": "https://harry-the-nerd.github.io/open-interview-assistant/#install",
+            "image": "https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png",
+            "description": "Translucent always-on-top interview overlay. Reads page text via a Chrome extension, stays invisible on screenshare, needs no microphone or system recording permission, and is fully open source.",
+            "featureList": [
+              "Invisible on screenshare and screen capture",
+              "No microphone or system recording permission",
+              "No OS privacy indicator light",
+              "Mouse pass-through overlay",
+              "Keyboard-only controls",
+              "Interview-arc answer layout",
+              "Open source and customizable"
+            ],
+            "author": { "@id": "https://darkinterview.com/#organization" },
+            "publisher": { "@id": "https://darkinterview.com/#organization" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://darkinterview.com/#organization",
+            "name": "DarkInterview",
+            "url": "https://darkinterview.com",
+            "sameAs": [
+              "https://github.com/harry-the-nerd/open-interview-assistant"
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -283,121 +405,27 @@
         background: rgba(255, 255, 255, 0.35);
       }
 
-      /* Stage / realistic mock */
-      .stage {
-        margin-top: 3rem;
+      /* Hero product shot */
+      figure.hero-shot {
+        margin: 3rem 0 0;
         border: 1px solid var(--line-strong);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 28%),
-          #050505;
+        background: #050505;
         overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
       }
-      .stage-bar {
-        display: flex;
-        align-items: center;
-        gap: 0.55rem;
-        padding: 0.7rem 0.9rem;
-        border-bottom: 1px solid var(--line);
-        background: #0a0a0a;
-      }
-      .dots {
-        display: flex;
-        gap: 0.35rem;
-      }
-      .dots i {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: #1a1a1a;
+      .hero-shot img {
         display: block;
+        width: 100%;
+        height: auto;
       }
-      .stage-url {
-        flex: 1;
-        min-width: 0;
-        border: 1px solid var(--line);
-        background: #000;
-        color: var(--dim);
+      .hero-shot figcaption {
+        border-top: 1px solid var(--line);
+        padding: 0.75rem 1rem;
         font-family: var(--mono);
         font-size: 0.72rem;
-        padding: 0.35rem 0.65rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .stage-body {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        min-height: 420px;
-        position: relative;
-        background:
-          radial-gradient(
-            700px 280px at 80% 0%,
-            rgba(255, 255, 255, 0.04),
-            transparent 55%
-          ),
-          #050505;
-      }
-      .editor-pane {
-        border-right: 1px solid var(--line);
-        padding: 1rem 0.95rem 1.2rem;
-        font-family: var(--mono);
-        font-size: 0.74rem;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.55);
-        background: #080808;
-      }
-      .editor-pane .ln {
-        display: inline-block;
-        width: 2ch;
-        margin-right: 1rem;
-        color: rgba(255, 255, 255, 0.18);
-        text-align: right;
-        user-select: none;
-      }
-      .editor-pane .kw {
-        color: rgba(255, 255, 255, 0.78);
-      }
-      .editor-pane .fn {
-        color: #fff;
-      }
-      .editor-pane .cm {
-        color: rgba(255, 255, 255, 0.28);
-      }
-      .browser-pane {
-        padding: 1.15rem 1.2rem;
-        text-align: left;
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-        margin-bottom: 0.85rem;
-      }
-      .tag {
-        font-family: var(--mono);
-        font-size: 0.66rem;
         letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: var(--muted);
-        border: 1px solid var(--line);
-        padding: 0.18rem 0.45rem;
-        background: rgba(255, 255, 255, 0.02);
-      }
-      .tag.hard {
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.35);
-      }
-      .browser-pane h3 {
-        font-size: 1.05rem;
-        letter-spacing: -0.03em;
-        margin-bottom: 0.55rem;
-      }
-      .browser-pane p {
-        color: var(--muted);
-        font-size: 0.88rem;
-        max-width: 34ch;
-        margin-bottom: 0.7rem;
+        color: var(--dim);
+        background: #0a0a0a;
       }
 
       /* Real overlay mock — matches src/App.tsx */
@@ -1029,20 +1057,13 @@
         .grid-3,
         .own,
         .arc,
-        .install,
-        .stage-body {
+        .install {
           grid-template-columns: 1fr;
-        }
-        .editor-pane {
-          display: none;
         }
         .overlay {
           width: min(300px, 78%);
           height: auto;
           max-height: calc(100% - 28px);
-        }
-        .stage-body {
-          min-height: 460px;
         }
       }
       @media (max-width: 560px) {
@@ -1139,130 +1160,20 @@
             <span>Fork it · tweak it · make it yours</span>
           </div>
 
-          <div class="stage" aria-hidden="true">
-            <div class="stage-bar">
-              <div class="dots"><i></i><i></i><i></i></div>
-              <div class="stage-url">
-                leetcode.com/problems/median-of-two-sorted-arrays
-              </div>
-            </div>
-            <div class="stage-body">
-              <div class="editor-pane">
-                <div>
-                  <span class="ln">1</span><span class="kw">class</span>
-                  <span class="fn">Solution</span>:
-                </div>
-                <div>
-                  <span class="ln">2</span>&nbsp;&nbsp;<span class="kw"
-                    >def</span
-                  >
-                  <span class="fn">findMedianSortedArrays</span>(self, nums1,
-                  nums2):
-                </div>
-                <div>
-                  <span class="ln">3</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
-                    class="cm"
-                    ># focus stays here — panel ignores the mouse</span
-                  >
-                </div>
-                <div>
-                  <span class="ln">4</span>&nbsp;&nbsp;&nbsp;&nbsp;<span
-                    class="kw"
-                    >pass</span
-                  >
-                </div>
-                <div><span class="ln">5</span></div>
-                <div>
-                  <span class="ln">6</span
-                  ><span class="cm"
-                    ># ⌘⇧U sends the page. ⌘B hides the panel.</span
-                  >
-                </div>
-                <div>
-                  <span class="ln">7</span
-                  ><span class="cm"># No click ever lands on the overlay.</span>
-                </div>
-              </div>
-              <div class="browser-pane">
-                <div class="tags">
-                  <span class="tag hard">Hard</span>
-                  <span class="tag">Binary Search</span>
-                  <span class="tag">Array</span>
-                </div>
-                <h3>Median of Two Sorted Arrays</h3>
-                <p>
-                  Given two sorted arrays
-                  <code style="font-size: 0.85em">nums1</code> and
-                  <code style="font-size: 0.85em">nums2</code>, return the
-                  median of the two sorted arrays.
-                </p>
-                <p>
-                  The overall run time complexity should be
-                  <strong style="color: #fff">O(log (m+n))</strong>.
-                </p>
-              </div>
-
-              <!-- Faithful mock of src/App.tsx -->
-              <aside class="overlay">
-                <div class="overlay-header">
-                  <span class="title">Interview</span>
-                  <span class="page"
-                    >Median of Two Sorted Arrays · 4,812 chars</span
-                  >
-                  <span class="effort">medium</span>
-                </div>
-                <div class="overlay-scroll">
-                  <div class="ov-summary">
-                    <div class="ov-label">Summary</div>
-                    <div class="body">
-                      Binary-search the partition on the shorter array so left
-                      max ≤ right min on both sides.
-                    </div>
-                    <div class="meta">Time O(log min(m,n)) · Space O(1)</div>
-                  </div>
-                  <div class="ov-section">
-                    <div class="ov-label">Restate the problem</div>
-                    <p>
-                      Two sorted arrays. Need the median of the combined
-                      multiset without merging in linear time.
-                    </p>
-                  </div>
-                  <div class="ov-section">
-                    <div class="ov-label">Ask first</div>
-                    <p>
-                      Empty arrays allowed? Even vs odd total length? Always
-                      sorted integers?
-                    </p>
-                  </div>
-                  <div class="ov-section">
-                    <div class="ov-label">Solution</div>
-                    <div class="ov-code">
-                      <div class="row">
-                        <span class="n">1</span
-                        ><span class="t"
-                          >def findMedianSortedArrays(a, b):</span
-                        >
-                      </div>
-                      <div class="row">
-                        <span class="n">2</span
-                        ><span class="t"
-                          >&nbsp;&nbsp;if len(a) > len(b): a, b = b, a</span
-                        >
-                      </div>
-                      <div class="row">
-                        <span class="n">3</span
-                        ><span class="t">&nbsp;&nbsp;lo, hi = 0, len(a)</span>
-                      </div>
-                      <div class="row">
-                        <span class="n">4</span
-                        ><span class="t">&nbsp;&nbsp;...</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </div>
+          <figure class="hero-shot">
+            <img
+              src="assets/hero.png"
+              width="2780"
+              height="1844"
+              alt="Open Interview Assistant overlay floating over a coding interview problem with a structured answer: summary, approach, and solution code"
+              title="Open Interview Assistant in action"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <figcaption>
+              Real overlay · invisible on their screenshare · only you see it
+            </figcaption>
+          </figure>
         </div>
       </section>
 

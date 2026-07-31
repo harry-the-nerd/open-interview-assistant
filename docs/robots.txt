@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harry-the-nerd.github.io/open-interview-assistant/sitemap.xml

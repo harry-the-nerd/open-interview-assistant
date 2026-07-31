@@ -3,6 +3,23 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-darkinterview.com-0A0A0A)](https://darkinterview.com)
 [![Landing](https://img.shields.io/badge/Landing-GitHub_Pages-0A0A0A)](https://harry-the-nerd.github.io/open-interview-assistant/)
+[![GitHub stars](https://img.shields.io/github/stars/harry-the-nerd/open-interview-assistant?style=social)](https://github.com/harry-the-nerd/open-interview-assistant)
+
+**Invisible open-source interview overlay** — reads the question on your page and gives you an answer you can say out loud. Hidden from screenshare. No mic or system recording permission. Yours to fork and tweak.
+
+<p align="center">
+  <a href="https://harry-the-nerd.github.io/open-interview-assistant/">
+    <img src="docs/assets/hero.png" alt="Open Interview Assistant overlay floating over a coding interview problem" width="900" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://harry-the-nerd.github.io/open-interview-assistant/"><strong>Landing page</strong></a>
+  ·
+  <a href="https://darkinterview.com"><strong>DarkInterview</strong></a>
+  ·
+  <a href="#setup"><strong>Setup</strong></a>
+</p>
 
 Open-source interview overlay from [DarkInterview](https://darkinterview.com) —
 a translucent, always-on-top panel that reads the interview question you're

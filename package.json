@@ -1,8 +1,8 @@
 {
-  "name": "darkinterview-overlay",
+  "name": "open-interview-assistant",
   "version": "1.0.0",
   "private": false,
-  "description": "DarkInterview overlay — a translucent always-on-top panel driven by keyboard shortcuts. Reads page text via a Chrome extension and answers with Claude Sonnet.",
+  "description": "Open-source interview overlay \u2014 invisible on screenshare, no mic or system recording permission (no privacy light), mouse pass-through, keyboard-only. Reads page text via Chrome extension. From DarkInterview.",
   "license": "Apache-2.0",
   "author": "DarkInterview (https://darkinterview.com)",
   "homepage": "https://harry-the-nerd.github.io/open-interview-assistant/",
@@ -34,5 +34,23 @@
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "wait-on": "^8.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harry-the-nerd/open-interview-assistant.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harry-the-nerd/open-interview-assistant/issues"
+  },
+  "keywords": [
+    "interview",
+    "interview-assistant",
+    "coding-interview",
+    "electron",
+    "chrome-extension",
+    "overlay",
+    "open-source",
+    "leetcode",
+    "darkinterview"
+  ]
 }
