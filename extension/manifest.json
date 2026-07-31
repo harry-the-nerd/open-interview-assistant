@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "test-extension",
+  "version": "1.0.0",
+  "description": "Local development helper. Sends the current page's text to a local endpoint on a keystroke.",
+  "minimum_chrome_version": "116",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["http://127.0.0.1/*"],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "test-extension",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "send-page": {
+      "suggested_key": { "default": "Ctrl+Shift+U", "mac": "Command+Shift+U" },
+      "description": "Send page to local endpoint"
+    }
+  }
+}

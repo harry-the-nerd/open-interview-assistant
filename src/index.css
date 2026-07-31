@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The window is transparent; only the panel paints a background. */
+html,
+body,
+#root {
+	background: transparent;
+	margin: 0;
+	overflow: hidden;
+}
+
+/* Thin scrollbars so the panel stays visually quiet. */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.18);
+	border-radius: 3px;
+}
