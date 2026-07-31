@@ -1,1750 +1,1114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Open Interview Assistant — Invisible Open-Source Interview Overlay
-    </title>
-    <meta
-      name="description"
-      content="Open-source interview overlay for coding interviews. Invisible on Zoom/Meet/Teams screenshare, no mic or system recording permission (no privacy indicator light), mouse pass-through, keyboard-only. Fork it and make it yours. From DarkInterview."
-    />
-    <meta
-      name="keywords"
-      content="interview overlay, open source interview assistant, coding interview AI, screenshare invisible overlay, no privacy indicator, mouse pass-through, Electron interview tool, Chrome extension interview helper, DarkInterview, LeetCode assistant"
-    />
-    <meta name="author" content="DarkInterview" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="application-name" content="Open Interview Assistant" />
-    <link
-      rel="canonical"
-      href="https://harry-the-nerd.github.io/open-interview-assistant/"
-    />
-    <link
-      rel="image_src"
-      href="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Interview Assistant — Invisible Open-Source Interview Overlay</title>
+  <meta name="description" content="Open-source interview overlay for coding interviews. Invisible on Zoom/Meet/Teams screenshare, no mic or system recording permission (no privacy indicator light), mouse pass-through, keyboard-only. Fork it and make it yours. From DarkInterview." />
+  <meta name="keywords" content="interview overlay, open source interview assistant, coding interview AI, screenshare invisible overlay, no privacy indicator, mouse pass-through, Electron interview tool, Chrome extension interview helper, DarkInterview, LeetCode assistant" />
+  <meta name="author" content="DarkInterview" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="application-name" content="Open Interview Assistant" />
+  <link rel="canonical" href="https://harry-the-nerd.github.io/open-interview-assistant/" />
+  <link rel="image_src" href="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta
-      property="og:title"
-      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
-    />
-    <meta
-      property="og:description"
-      content="Invisible on screenshare. No mic or system capture — no privacy indicator light. Mouse pass-through, keyboard-only. Fully open source — it belongs to you."
-    />
-    <meta
-      property="og:url"
-      content="https://harry-the-nerd.github.io/open-interview-assistant/"
-    />
-    <meta property="og:site_name" content="Open Interview Assistant" />
-    <meta
-      property="og:image"
-      content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
-    />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1600" />
-    <meta property="og:image:height" content="1003" />
-    <meta
-      property="og:image:alt"
-      content="Open Interview Assistant overlay showing an interview script beside a coding problem"
-    />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Open Interview Assistant — Invisible Open-Source Interview Overlay" />
+  <meta property="og:description" content="Invisible on screenshare. No mic or system capture — no privacy indicator light. Mouse pass-through, keyboard-only. Fully open source — it belongs to you." />
+  <meta property="og:url" content="https://harry-the-nerd.github.io/open-interview-assistant/" />
+  <meta property="og:site_name" content="Open Interview Assistant" />
+  <meta property="og:image" content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="1003" />
+  <meta property="og:image:alt" content="Open Interview Assistant overlay showing an interview script beside a coding problem" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
-    />
-    <meta
-      name="twitter:description"
-      content="Invisible on screenshare. No mic or system capture — no privacy light. Fork it and make it yours."
-    />
-    <meta
-      name="twitter:image"
-      content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png"
-    />
-    <meta
-      name="twitter:image:alt"
-      content="Open Interview Assistant overlay showing an interview script beside a coding problem"
-    />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Open Interview Assistant — Invisible Open-Source Interview Overlay" />
+  <meta name="twitter:description" content="Invisible on screenshare. No mic or system capture — no privacy light. Fork it and make it yours." />
+  <meta name="twitter:image" content="https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png" />
+  <meta name="twitter:image:alt" content="Open Interview Assistant overlay showing an interview script beside a coding problem" />
 
-    <!-- Structured data -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website",
-            "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
-            "name": "Open Interview Assistant",
-            "description": "Open-source interview overlay that is invisible on screenshare, needs no mic or system recording permission, and is yours to fork and tweak.",
-            "inLanguage": "en",
-            "publisher": { "@id": "https://darkinterview.com/#organization" }
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#webpage",
-            "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
-            "name": "Open Interview Assistant — Invisible Open-Source Interview Overlay",
-            "isPartOf": {
-              "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website"
-            },
-            "primaryImageOfPage": {
-              "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image"
-            },
-            "description": "Invisible on Zoom, Meet, and Teams screenshare. No privacy indicator light. Mouse pass-through interview overlay. Open source under Apache 2.0.",
-            "inLanguage": "en"
-          },
-          {
-            "@type": "ImageObject",
-            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image",
-            "url": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
-            "contentUrl": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
-            "width": 2940,
-            "height": 1844,
-            "caption": "Open Interview Assistant floating over a coding interview problem"
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#app",
-            "name": "Open Interview Assistant",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "macOS, Windows, Linux",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "license": "https://www.apache.org/licenses/LICENSE-2.0",
-            "codeRepository": "https://github.com/harry-the-nerd/open-interview-assistant",
-            "downloadUrl": "https://github.com/harry-the-nerd/open-interview-assistant",
-            "softwareHelp": "https://harry-the-nerd.github.io/open-interview-assistant/#install",
-            "image": "https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png",
-            "description": "Translucent always-on-top interview overlay. Reads page text via a Chrome extension, stays invisible on screenshare, needs no microphone or system recording permission, and is fully open source.",
-            "featureList": [
-              "Invisible on screenshare and screen capture",
-              "No microphone or system recording permission",
-              "No OS privacy indicator light",
-              "Mouse pass-through overlay",
-              "Keyboard-only controls",
-              "Interview-arc answer layout",
-              "Open source and customizable"
-            ],
-            "author": { "@id": "https://darkinterview.com/#organization" },
-            "publisher": { "@id": "https://darkinterview.com/#organization" }
-          },
-          {
-            "@type": "Organization",
-            "@id": "https://darkinterview.com/#organization",
-            "name": "DarkInterview",
-            "url": "https://darkinterview.com",
-            "sameAs": [
-              "https://github.com/harry-the-nerd/open-interview-assistant"
-            ]
-          }
-        ]
+        "@type": "WebSite",
+        "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website",
+        "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
+        "name": "Open Interview Assistant",
+        "description": "Open-source interview overlay that is invisible on screenshare, needs no mic or system recording permission, and is yours to fork and tweak.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://darkinterview.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#webpage",
+        "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
+        "name": "Open Interview Assistant — Invisible Open-Source Interview Overlay",
+        "isPartOf": { "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website" },
+        "primaryImageOfPage": { "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image" },
+        "description": "Invisible on Zoom, Meet, and Teams screenshare. No privacy indicator light. Mouse pass-through interview overlay. Open source under Apache 2.0.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image",
+        "url": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
+        "contentUrl": "https://harry-the-nerd.github.io/open-interview-assistant/assets/hero.png",
+        "width": 2940,
+        "height": 1844,
+        "caption": "Open Interview Assistant floating over a coding interview problem"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#app",
+        "name": "Open Interview Assistant",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Windows, Linux",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "codeRepository": "https://github.com/harry-the-nerd/open-interview-assistant",
+        "downloadUrl": "https://github.com/harry-the-nerd/open-interview-assistant",
+        "softwareHelp": "https://harry-the-nerd.github.io/open-interview-assistant/#install",
+        "image": "https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png",
+        "description": "Translucent always-on-top interview overlay. Reads page text via a Chrome extension, stays invisible on screenshare, needs no microphone or system recording permission, and is fully open source.",
+        "featureList": [
+          "Invisible on screenshare and screen capture",
+          "No microphone or system recording permission",
+          "No OS privacy indicator light",
+          "Mouse pass-through overlay",
+          "Keyboard-only controls",
+          "Interview-arc answer layout",
+          "Open source and customizable"
+        ],
+        "author": { "@id": "https://darkinterview.com/#organization" },
+        "publisher": { "@id": "https://darkinterview.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://darkinterview.com/#organization",
+        "name": "DarkInterview",
+        "url": "https://darkinterview.com",
+        "sameAs": ["https://github.com/harry-the-nerd/open-interview-assistant"]
       }
-    </script>
+    ]
+  }
+  </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <style>
-      :root {
-        --bg: #000;
-        --bg-2: #070707;
-        --bg-3: #0d0d0d;
-        --line: rgba(255, 255, 255, 0.1);
-        --line-strong: rgba(255, 255, 255, 0.18);
-        --text: #f5f5f5;
-        --muted: rgba(255, 255, 255, 0.58);
-        --dim: rgba(255, 255, 255, 0.34);
-        --soft: rgba(255, 255, 255, 0.06);
-        --soft-2: rgba(255, 255, 255, 0.09);
-        --max: 1120px;
-        --font: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
-        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-      }
+  <style>
+    :root {
+      --bg: #000;
+      --bg-elev: #0a0a0a;
+      --bg-card: #0c0c0c;
+      --line: rgba(255, 255, 255, 0.09);
+      --line-2: rgba(255, 255, 255, 0.16);
+      --text: #f4f4f5;
+      --muted: rgba(255, 255, 255, 0.62);
+      --dim: rgba(255, 255, 255, 0.38);
+      --max: 1080px;
+      --radius: 14px;
+      --font: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: var(--font);
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.55;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      code,
-      kbd {
-        font-family: var(--mono);
-      }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    code, kbd { font-family: var(--mono); }
+    ::selection { background: rgba(255,255,255,0.16); }
 
-      .noise {
-        pointer-events: none;
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        opacity: 0.035;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      }
-      .frame {
-        pointer-events: none;
-        position: fixed;
-        inset: 12px;
-        z-index: 0;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
 
-      .wrap {
-        width: min(100% - 2rem, var(--max));
-        margin-inline: auto;
-        position: relative;
-        z-index: 1;
-      }
+    /* Ambient */
+    .glow {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(900px 420px at 50% -8%, rgba(255,255,255,0.07), transparent 60%),
+        radial-gradient(600px 300px at 85% 20%, rgba(255,255,255,0.03), transparent 50%);
+    }
 
-      /* Nav */
-      .nav {
-        position: sticky;
-        top: 0;
-        z-index: 40;
-        background: rgba(0, 0, 0, 0.78);
-        backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--line);
-      }
-      .nav-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        min-height: 58px;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-        font-size: 0.95rem;
-      }
-      .brand-mark {
-        width: 22px;
-        height: 22px;
-        border: 1px solid var(--line-strong);
-        display: grid;
-        place-items: center;
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0;
-        color: var(--text);
-        background: #111;
-      }
-      .brand em {
-        font-style: normal;
-        color: var(--dim);
-        font-weight: 500;
-        margin-left: 0.15rem;
-      }
-      .nav-links {
-        display: flex;
-        gap: 0.15rem;
-      }
-      .nav-links a {
-        color: var(--muted);
-        font-size: 0.84rem;
-        padding: 0.4rem 0.7rem;
-        border: 1px solid transparent;
-        transition:
-          color 0.15s,
-          border-color 0.15s,
-          background 0.15s;
-      }
-      .nav-links a:hover {
-        color: var(--text);
-        border-color: var(--line);
-        background: var(--soft);
-      }
-      .nav-cta {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-      }
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid transparent;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      transition: border-color .25s var(--ease), background .25s var(--ease);
+    }
+    .nav.is-scrolled {
+      border-bottom-color: var(--line);
+      background: rgba(0,0,0,0.82);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 60px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      font-size: 0.94rem;
+    }
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--line-2);
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      background: #111;
+    }
+    .brand small {
+      color: var(--dim);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+    }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 500;
+      padding: 0.42rem 0.72rem;
+      border-radius: 999px;
+      transition: color .15s, background .15s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+    .nav-cta { display: flex; align-items: center; gap: 0.5rem; }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.45rem;
-        min-height: 40px;
-        padding: 0 0.95rem;
-        font-size: 0.88rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        border: 1px solid var(--line-strong);
-        background: transparent;
-        color: var(--text);
-        transition:
-          background 0.15s,
-          border-color 0.15s,
-          color 0.15s,
-          transform 0.15s;
-        white-space: nowrap;
-      }
-      .btn:hover {
-        background: var(--soft-2);
-        transform: translateY(-1px);
-      }
-      .btn-solid {
-        background: #fff;
-        color: #000;
-        border-color: #fff;
-      }
-      .btn-solid:hover {
-        background: #e8e8e8;
-        border-color: #e8e8e8;
-      }
-      .btn-lg {
-        min-height: 46px;
-        padding: 0 1.15rem;
-        font-size: 0.94rem;
-      }
-      .btn svg {
-        width: 16px;
-        height: 16px;
-      }
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      min-height: 40px;
+      padding: 0 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-2);
+      background: transparent;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: transform .15s var(--ease), background .15s, border-color .15s, box-shadow .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { background: rgba(255,255,255,0.05); transform: translateY(-1px); }
+    .btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+    .btn-solid {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+    .btn-solid:hover {
+      background: #ececec;
+      border-color: #ececec;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.12);
+    }
+    .btn-ghost {
+      border-color: transparent;
+      color: var(--muted);
+    }
+    .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .btn-lg { min-height: 48px; padding: 0 1.2rem; font-size: 0.95rem; }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-      /* Hero */
-      .hero {
-        padding: 4.75rem 0 3.25rem;
-        border-bottom: 1px solid var(--line);
-      }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--dim);
-        margin-bottom: 1.25rem;
-      }
-      .eyebrow i {
-        width: 6px;
-        height: 6px;
-        background: #fff;
-        display: inline-block;
-      }
-      h1 {
-        max-width: 14ch;
-        font-size: clamp(2.5rem, 6vw, 4.4rem);
-        line-height: 0.98;
-        letter-spacing: -0.055em;
-        font-weight: 700;
-        margin-bottom: 1.15rem;
-      }
-      h1 span {
-        color: var(--dim);
-        font-weight: 500;
-      }
-      .hero-lead {
-        max-width: 40rem;
-        color: var(--muted);
-        font-size: clamp(1rem, 1.7vw, 1.15rem);
-        line-height: 1.65;
-        margin-bottom: 1.75rem;
-      }
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-        margin-bottom: 1.75rem;
-      }
-      .hero-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem 1.25rem;
-        font-family: var(--mono);
-        font-size: 0.74rem;
-        color: var(--dim);
-        letter-spacing: 0.02em;
-      }
-      .hero-meta span {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .hero-meta span::before {
-        content: "";
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.35);
-      }
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 4.25rem 0 1.25rem;
+    }
+    .hero-copy {
+      max-width: 44rem;
+      margin: 0 auto 2.25rem;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.15rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--dim);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .eyebrow i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+    }
+    h1 {
+      font-size: clamp(2.4rem, 5.8vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--dim);
+      font-weight: 500;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.7vw, 1.15rem);
+      line-height: 1.65;
+      max-width: 38rem;
+      margin: 0 auto 1.6rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin-bottom: 1.35rem;
+    }
+    .proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.38rem 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .proof svg {
+      width: 13px;
+      height: 13px;
+      opacity: 0.7;
+    }
 
-      /* Hero product shot */
-      figure.hero-shot {
-        margin: 3rem 0 0;
-        border: 1px solid var(--line-strong);
-        background: #050505;
-        overflow: hidden;
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
-      }
-      .hero-shot img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-      .hero-shot figcaption {
-        border-top: 1px solid var(--line);
-        padding: 0.75rem 1rem;
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        letter-spacing: 0.04em;
-        color: var(--dim);
-        background: #0a0a0a;
-      }
+    /* Product shot */
+    .shot-wrap {
+      position: relative;
+      margin-top: 2.5rem;
+    }
+    .shot-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 8% 5% -4%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.1), transparent 65%);
+      filter: blur(8px);
+      z-index: 0;
+    }
+    figure.shot {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      border: 1px solid var(--line-2);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #080808;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.06) inset,
+        0 40px 100px rgba(0,0,0,0.55);
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+    }
+    .shot-badge {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.7rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.82);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+    }
+    .shot-badge i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+    }
 
-      /* Real overlay mock — matches src/App.tsx */
-      .overlay {
-        position: absolute;
-        top: 14px;
-        right: 14px;
-        width: min(318px, 48%);
-        height: calc(100% - 28px);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        color: #fff;
-        border-left: 1px solid rgba(255, 255, 255, 0.15);
-        border-right: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(14, 15, 19, 0.72);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-        text-align: left;
-      }
-      .overlay-header {
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.5rem 0.7rem;
-        flex-shrink: 0;
-      }
-      .overlay-header .title {
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-      }
-      .overlay-header .page {
-        min-width: 0;
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.45);
-      }
-      .overlay-header .effort {
-        margin-left: auto;
-        flex-shrink: 0;
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.3);
-      }
-      .overlay-scroll {
-        min-height: 0;
-        flex: 1;
-        overflow: hidden;
-      }
-      .ov-summary {
-        border-left: 2px solid rgba(125, 211, 252, 0.7);
-        background: rgba(56, 189, 248, 0.07);
-        padding: 0.7rem 0.9rem;
-      }
-      .ov-label {
-        margin-bottom: 0.35rem;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(186, 230, 253, 0.8);
-      }
-      .ov-summary .body {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.5;
-        color: #fff;
-        white-space: pre-wrap;
-      }
-      .ov-summary .meta {
-        margin-top: 0.45rem;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.6);
-      }
-      .ov-section {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 0.7rem 0.9rem;
-      }
-      .ov-section .ov-label {
-        color: rgba(255, 255, 255, 0.45);
-      }
-      .ov-section p {
-        font-size: 13px;
-        line-height: 1.55;
-        color: rgba(255, 255, 255, 0.9);
-        white-space: pre-wrap;
-      }
-      .ov-code {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.55);
-        padding: 0.55rem 0.65rem;
-        font-family: var(--mono);
-        font-size: 12px;
-        line-height: 1.65;
-        color: #d1fae5;
-      }
-      .ov-code .row {
-        display: flex;
-      }
-      .ov-code .n {
-        width: 1.5ch;
-        margin-right: 0.7rem;
-        flex-shrink: 0;
-        text-align: right;
-        color: rgba(255, 255, 255, 0.25);
-        user-select: none;
-      }
-      .ov-code .t {
-        min-width: 0;
-        white-space: pre-wrap;
-        word-break: break-word;
-      }
+    /* Sections */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 0;
+    }
+    .section.tight { padding: 3.5rem 0; }
+    .section-head {
+      max-width: 36rem;
+      margin: 0 auto 2.25rem;
+      text-align: center;
+    }
+    .section-head.left {
+      margin-left: 0;
+      text-align: left;
+    }
+    .kicker {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      color: var(--dim);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+    .divider {
+      height: 1px;
+      background: var(--line);
+      border: 0;
+    }
 
-      /* Sections */
-      section.block {
-        padding: 4.25rem 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .section-head {
-        max-width: 40rem;
-        margin-bottom: 2.25rem;
-      }
-      .section-head.center {
-        text-align: center;
-        margin-inline: auto;
-      }
-      .kicker {
-        display: inline-block;
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--dim);
-        margin-bottom: 0.8rem;
-      }
-      h2 {
-        font-size: clamp(1.65rem, 3.4vw, 2.35rem);
-        line-height: 1.08;
-        letter-spacing: -0.04em;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-      }
-      .section-head p {
-        color: var(--muted);
-        font-size: 1.02rem;
-      }
+    /* Trust pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+    }
+    .pillar {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 50%),
+        var(--bg-card);
+      padding: 1.35rem 1.25rem 1.4rem;
+      transition: border-color .2s var(--ease), transform .2s var(--ease);
+    }
+    .pillar:hover {
+      border-color: var(--line-2);
+      transform: translateY(-2px);
+    }
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+    }
+    .pillar-icon svg { width: 16px; height: 16px; }
+    .pillar h3 {
+      font-size: 1.02rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.4rem;
+    }
+    .pillar p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
 
-      .grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .cell {
-        background: var(--bg);
-        padding: 1.4rem 1.25rem 1.5rem;
-      }
-      .cell:hover {
-        background: #080808;
-      }
-      .cell .num {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--dim);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.85rem;
-      }
-      .cell h3 {
-        font-size: 1.05rem;
-        letter-spacing: -0.025em;
-        margin-bottom: 0.45rem;
-        font-weight: 600;
-      }
-      .cell p {
-        color: var(--muted);
-        font-size: 0.92rem;
-        line-height: 1.55;
-      }
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+      counter-reset: step;
+    }
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.25rem 1.45rem;
+      background: var(--bg-elev);
+    }
+    .step::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      display: block;
+      margin-bottom: 0.9rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+    }
+    .step h3 {
+      font-size: 1.05rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.4rem;
+    }
+    .step p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .kbd {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      padding: 0.14rem 0.4rem;
+      border: 1px solid var(--line-2);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.88);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+    }
 
-      /* Stealth special */
-      .stealth-visual {
-        margin: 1rem 0 1.15rem;
-        border: 1px solid var(--line);
-        background: #050505;
-        padding: 0.9rem;
-        min-height: 92px;
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-      }
-      .share-mock {
-        flex: 1;
-        min-width: 0;
-      }
-      .share-mock .bar {
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--dim);
-        margin-bottom: 0.4rem;
-      }
-      .share-mock .screen {
-        height: 52px;
-        border: 1px solid var(--line);
-        background: #0a0a0a;
-        display: grid;
-        place-items: center;
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--dim);
-      }
-      .ghost {
-        width: 70px;
-        height: 70px;
-        border: 1px dashed rgba(255, 255, 255, 0.28);
-        display: grid;
-        place-items: center;
-        text-align: center;
-        font-family: var(--mono);
-        font-size: 0.62rem;
-        line-height: 1.3;
-        color: rgba(255, 255, 255, 0.55);
-        flex-shrink: 0;
-      }
-      .dots-off {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-      }
-      .dot-off {
-        position: relative;
-        width: 34px;
-        height: 34px;
-        border: 1px solid var(--line-strong);
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-      }
-      .dot-off i {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.22);
-        display: block;
-      }
-      .dot-off::after {
-        content: "";
-        position: absolute;
-        width: 26px;
-        height: 1px;
-        background: #fff;
-        transform: rotate(-42deg);
-      }
-      .dots-off .cap {
-        font-size: 0.86rem;
-        color: var(--muted);
-        line-height: 1.4;
-      }
-      .dots-off .cap strong {
-        display: block;
-        color: var(--text);
-        margin-bottom: 0.1rem;
-        font-size: 0.92rem;
-      }
-      .bullets {
-        list-style: none;
-        display: grid;
-        gap: 0.55rem;
-      }
-      .bullets li {
-        display: grid;
-        grid-template-columns: 12px 1fr;
-        gap: 0.65rem;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-      .bullets li::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        margin-top: 0.45rem;
-        background: #fff;
-      }
-      .bullets strong {
-        color: var(--text);
-        font-weight: 600;
-      }
+    /* Feature grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+    }
+    .feature {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.2rem 1.3rem;
+      background: var(--bg);
+      transition: border-color .2s, background .2s;
+    }
+    .feature:hover {
+      border-color: var(--line-2);
+      background: var(--bg-elev);
+    }
+    .feature .n {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+      margin-bottom: 0.7rem;
+    }
+    .feature h3 {
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .feature p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
 
-      /* Own it */
-      .own {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 1.25rem;
-        align-items: stretch;
-      }
-      .own-copy {
-        border: 1px solid var(--line);
-        padding: 1.75rem 1.6rem;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 40%),
-          #050505;
-      }
-      .own-copy h2 {
-        max-width: 14ch;
-      }
-      .own-copy > p {
-        color: var(--muted);
-        font-size: 1.02rem;
-        margin-bottom: 1.25rem;
-        max-width: 38ch;
-      }
-      .own-list {
-        list-style: none;
-        display: grid;
-        gap: 0.75rem;
-        margin-bottom: 1.4rem;
-      }
-      .own-list li {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.75rem;
-        align-items: start;
-        padding-top: 0.75rem;
-        border-top: 1px solid var(--line);
-      }
-      .own-list code {
-        font-size: 0.72rem;
-        color: var(--dim);
-        border: 1px solid var(--line);
-        padding: 0.2rem 0.4rem;
-        background: #000;
-        margin-top: 0.15rem;
-      }
-      .own-list strong {
-        display: block;
-        margin-bottom: 0.15rem;
-        letter-spacing: -0.02em;
-      }
-      .own-list span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-      .own-side {
-        border: 1px solid var(--line);
-        background: #000;
-        display: flex;
-        flex-direction: column;
-      }
-      .own-side header {
-        padding: 0.75rem 0.95rem;
-        border-bottom: 1px solid var(--line);
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--dim);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: space-between;
-      }
-      .own-side pre {
-        flex: 1;
-        padding: 1rem 1rem 1.2rem;
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.78);
-        overflow-x: auto;
-      }
-      .own-side .c {
-        color: rgba(255, 255, 255, 0.3);
-      }
-      .own-side .g {
-        color: #fff;
-      }
+    /* Own it */
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0.85rem;
+      align-items: stretch;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.028), transparent 42%),
+        var(--bg-card);
+      padding: 1.7rem 1.55rem;
+    }
+    .panel h2 { max-width: 12ch; }
+    .panel > .lead-sm {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 0.75rem 0 1.25rem;
+      max-width: 36ch;
+    }
+    .tweak-list {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1.4rem;
+    }
+    .tweak-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.75rem 0 0;
+      border-top: 1px solid var(--line);
+    }
+    .tweak-list code {
+      margin-top: 0.12rem;
+      font-size: 0.68rem;
+      color: var(--dim);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.22rem 0.4rem;
+      background: #000;
+    }
+    .tweak-list strong {
+      display: block;
+      margin-bottom: 0.12rem;
+      letter-spacing: -0.02em;
+      font-size: 0.95rem;
+    }
+    .tweak-list span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .code-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #050505;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .code-card header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .code-card pre {
+      flex: 1;
+      padding: 1.05rem 1.05rem 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      overflow-x: auto;
+    }
+    .code-card .c { color: rgba(255,255,255,0.3); }
+    .code-card .g { color: #fff; }
 
-      /* Arc */
-      .arc {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .arc-left,
-      .arc-right {
-        background: var(--bg);
-        padding: 1.6rem;
-      }
-      .arc-left ol {
-        list-style: none;
-        display: grid;
-        gap: 0;
-        margin-top: 1.25rem;
-      }
-      .arc-left li {
-        display: grid;
-        grid-template-columns: 2.2rem 1fr;
-        gap: 0.75rem;
-        padding: 0.8rem 0;
-        border-top: 1px solid var(--line);
-      }
-      .arc-left .n {
-        font-family: var(--mono);
-        font-size: 0.75rem;
-        color: var(--dim);
-        padding-top: 0.15rem;
-      }
-      .arc-left strong {
-        display: block;
-        margin-bottom: 0.15rem;
-        letter-spacing: -0.02em;
-      }
-      .arc-left span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
+    /* Install */
+    .install {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0.85rem;
+    }
+    .install-notes {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.3rem;
+      background: var(--bg-elev);
+    }
+    .install-notes h3 {
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.9rem;
+    }
+    .install-notes ol {
+      padding-left: 1.15rem;
+      display: grid;
+      gap: 0.7rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+    }
+    .install-notes li::marker { color: #fff; font-weight: 700; }
+    .install-notes code {
+      font-size: 0.82em;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: #000;
+      padding: 0.08rem 0.32rem;
+      color: rgba(255,255,255,0.88);
+    }
 
-      /* Mini real panel for arc */
-      .mini-overlay {
-        border-left: 1px solid rgba(255, 255, 255, 0.15);
-        border-right: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(14, 15, 19, 0.88);
-        overflow: hidden;
-        height: 100%;
-        min-height: 360px;
-      }
-      .mini-overlay .overlay-header {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
+    /* Shortcuts compact */
+    details.shortcuts {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-elev);
+      overflow: hidden;
+    }
+    details.shortcuts summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    details.shortcuts summary::-webkit-details-marker { display: none; }
+    details.shortcuts summary span {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.88rem;
+    }
+    details.shortcuts summary::after {
+      content: "+";
+      font-family: var(--mono);
+      color: var(--dim);
+      font-size: 1.1rem;
+    }
+    details.shortcuts[open] summary::after { content: "–"; }
+    .table-wrap { border-top: 1px solid var(--line); overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.85rem 1.15rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dim);
+      background: rgba(255,255,255,0.02);
+      font-weight: 500;
+    }
+    tr:last-child td { border-bottom: 0; }
+    td:first-child { width: 34%; white-space: nowrap; }
+    td:last-child { color: var(--muted); }
+    tr:hover td { background: rgba(255,255,255,0.015); }
 
-      /* Shortcuts */
-      .table-wrap {
-        border: 1px solid var(--line);
-        overflow: hidden;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.92rem;
-      }
-      th,
-      td {
-        text-align: left;
-        padding: 0.9rem 1.05rem;
-        border-bottom: 1px solid var(--line);
-        vertical-align: top;
-      }
-      th {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--dim);
-        background: #080808;
-        font-weight: 500;
-      }
-      tr:last-child td {
-        border-bottom: 0;
-      }
-      td:first-child {
-        width: 34%;
-      }
-      td:last-child {
-        color: var(--muted);
-      }
-      tr:hover td {
-        background: rgba(255, 255, 255, 0.02);
-      }
-      .kbd {
-        display: inline-flex;
-        align-items: center;
-        font-family: var(--mono);
-        font-size: 0.74rem;
-        padding: 0.18rem 0.42rem;
-        border: 1px solid var(--line-strong);
-        background: rgba(255, 255, 255, 0.04);
-        color: rgba(255, 255, 255, 0.85);
-        margin-right: 0.25rem;
-      }
+    /* CTA */
+    .cta {
+      border: 1px solid var(--line-2);
+      border-radius: 20px;
+      padding: clamp(1.8rem, 4vw, 2.75rem);
+      text-align: center;
+      background:
+        radial-gradient(700px 240px at 50% 0%, rgba(255,255,255,0.07), transparent 60%),
+        linear-gradient(180deg, #101010, #070707);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    }
+    .cta h2 {
+      max-width: 16ch;
+      margin-inline: auto;
+    }
+    .cta > p {
+      color: var(--muted);
+      max-width: 34rem;
+      margin: 0.75rem auto 1.4rem;
+      font-size: 1.02rem;
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+    }
 
-      /* Install */
-      .install {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-      }
-      .install > * {
-        background: var(--bg);
-      }
-      .code-block header {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid var(--line);
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--dim);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-      .code-block pre {
-        padding: 1.1rem 1.1rem 1.3rem;
-        font-family: var(--mono);
-        font-size: 0.84rem;
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.82);
-        overflow-x: auto;
-        background: #050505;
-      }
-      .code-block .c {
-        color: rgba(255, 255, 255, 0.3);
-      }
-      .code-block .g {
-        color: #fff;
-      }
-      .install-notes {
-        padding: 1.4rem 1.3rem;
-      }
-      .install-notes h3 {
-        font-size: 1.05rem;
-        letter-spacing: -0.02em;
-        margin-bottom: 0.85rem;
-      }
-      .install-notes ol {
-        padding-left: 1.1rem;
-        display: grid;
-        gap: 0.65rem;
-        color: var(--muted);
-        font-size: 0.92rem;
-        margin-bottom: 1.25rem;
-      }
-      .install-notes li::marker {
-        color: #fff;
-      }
-      .install-notes code {
-        font-size: 0.82em;
-        border: 1px solid var(--line);
-        background: #080808;
-        padding: 0.08rem 0.32rem;
-        color: rgba(255, 255, 255, 0.85);
-      }
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 0 2.75rem;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand strong {
+      display: block;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.2rem;
+    }
+    .footer-brand span {
+      color: var(--dim);
+      font-size: 0.86rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .footer-links a:hover { color: var(--text); }
 
-      /* CTA */
-      .cta {
-        border: 1px solid var(--line-strong);
-        padding: clamp(2rem, 5vw, 3rem);
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 42%),
-          #050505;
-        text-align: center;
-      }
-      .cta h2 {
-        max-width: 16ch;
-        margin-inline: auto;
-      }
-      .cta > p {
-        color: var(--muted);
-        max-width: 36rem;
-        margin: 0 auto 1.5rem;
-        font-size: 1.02rem;
-      }
-      .cta-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-        justify-content: center;
-        margin-bottom: 1.25rem;
-      }
-      .cta-meta {
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--dim);
-        letter-spacing: 0.04em;
-      }
+    /* Mobile sticky CTA */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(14px);
+    }
+    .mobile-cta .btn { width: 100%; }
 
-      footer {
-        padding: 2.25rem 0 3rem;
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .pillars, .steps, .features, .split, .install {
+        grid-template-columns: 1fr;
       }
-      .footer-inner {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .footer-brand strong {
-        display: block;
-        letter-spacing: -0.03em;
-        margin-bottom: 0.2rem;
-      }
-      .footer-brand span {
-        color: var(--dim);
-        font-size: 0.86rem;
-      }
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-      }
-      .footer-links a {
-        color: var(--muted);
-        font-size: 0.88rem;
-      }
-      .footer-links a:hover {
-        color: var(--text);
-      }
+      .hero { padding-top: 3.25rem; }
+      h1 { max-width: 12ch; margin-inline: auto; }
+    }
+    @media (max-width: 640px) {
+      .nav-cta .btn-ghost { display: none; }
+      .proof-row { gap: 0.4rem; }
+      .proof { font-size: 0.74rem; }
+      .shot-badge { left: 10px; bottom: 10px; font-size: 0.62rem; }
+      .mobile-cta { display: block; }
+      body { padding-bottom: 5.25rem; }
+      td:first-child { width: auto; white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
 
-      @media (max-width: 900px) {
-        .nav-links {
-          display: none;
-        }
-        .grid-2,
-        .grid-3,
-        .own,
-        .arc,
-        .install {
-          grid-template-columns: 1fr;
-        }
-        .overlay {
-          width: min(300px, 78%);
-          height: auto;
-          max-height: calc(100% - 28px);
-        }
-      }
-      @media (max-width: 560px) {
-        .hero {
-          padding-top: 3.25rem;
-        }
-        .nav-cta .btn:not(.btn-solid) {
-          display: none;
-        }
-        th,
-        td {
-          padding: 0.75rem;
-        }
-        td:first-child {
-          width: auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="noise" aria-hidden="true"></div>
-    <div class="frame" aria-hidden="true"></div>
-
-    <header class="nav">
-      <div class="wrap nav-inner">
-        <a class="brand" href="#top">
-          <span class="brand-mark">OI</span>
-          Open Interview Assistant<em>/ OSS</em>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">OI</span>
+        Open Interview Assistant
+        <small>OSS</small>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#why">Why</a>
+        <a href="#how">How</a>
+        <a href="#yours">Yours</a>
+        <a href="#install">Install</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://darkinterview.com" target="_blank" rel="noopener">DarkInterview</a>
+        <a class="btn btn-solid" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.41-1.28.74-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"/></svg>
+          GitHub
         </a>
-        <nav class="nav-links" aria-label="Primary">
-          <a href="#stealth">Invisible</a>
-          <a href="#yours">Yours</a>
-          <a href="#features">Features</a>
-          <a href="#install">Install</a>
-        </nav>
-        <div class="nav-cta">
-          <a
-            class="btn"
-            href="https://github.com/harry-the-nerd/open-interview-assistant"
-            target="_blank"
-            rel="noopener"
-          >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path
-                d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.41-1.28.74-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"
-              />
-            </svg>
-            GitHub
-          </a>
-          <a
-            class="btn btn-solid"
-            href="https://darkinterview.com"
-            target="_blank"
-            rel="noopener"
-            >DarkInterview</a
-          >
-        </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="wrap">
-          <div class="eyebrow">
-            <i></i> Open source · Apache 2.0 · from DarkInterview
-          </div>
-          <h1>Invisible help. <span>Yours to rewrite.</span></h1>
-          <p class="hero-lead">
-            A translucent always-on-top interview overlay that reads the page
-            and gives you an answer you can say out loud. Hidden from
-            screenshare. No mic or system capture — no privacy light. Fully open
-            source, so it belongs to you: fork it, restyle it, rebind it, make
-            it yours.
+  <main id="top">
+    <!-- 1. Promise + proof -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><i></i> Open source · Apache 2.0 · from DarkInterview</div>
+          <h1>Invisible help.<br /><em>Yours to rewrite.</em></h1>
+          <p class="lead">
+            A translucent interview overlay that reads the page and gives you an
+            answer you can say out loud — hidden from screenshare, silent on
+            permissions, fully open source.
           </p>
           <div class="hero-actions">
-            <a
-              class="btn btn-solid btn-lg"
-              href="https://github.com/harry-the-nerd/open-interview-assistant"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.41-1.28.74-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"
-                />
-              </svg>
-              Clone the repo
+            <a class="btn btn-solid btn-lg" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.41-1.28.74-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"/></svg>
+              Star &amp; clone
             </a>
-            <a class="btn btn-lg" href="#install">Install locally</a>
+            <a class="btn btn-lg" href="#install">Get started in 2 minutes</a>
           </div>
-          <div class="hero-meta">
-            <span>Invisible in Zoom / Meet / Teams</span>
-            <span>No mic · no system capture · no privacy light</span>
-            <span>Fork it · tweak it · make it yours</span>
+          <div class="proof-row">
+            <span class="proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+              Hidden on share
+            </span>
+            <span class="proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>
+              No privacy light
+            </span>
+            <span class="proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h10M4 17h14"/></svg>
+              Mouse pass-through
+            </span>
+            <span class="proof">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/></svg>
+              Fork &amp; tweak
+            </span>
           </div>
+        </div>
 
-          <figure class="hero-shot">
+        <div class="shot-wrap">
+          <figure class="shot">
             <img
               src="assets/hero.png"
               width="2940"
               height="1844"
-              alt="Open Interview Assistant overlay floating over a coding interview problem with a structured answer: summary, approach, and solution code"
+              alt="Open Interview Assistant overlay floating over a LeetCode problem with a structured interview answer: summary, approach, and solution code"
               title="Open Interview Assistant in action"
               fetchpriority="high"
               decoding="async"
             />
-            <figcaption>
-              Real overlay · invisible on their screenshare · only you see it
-            </figcaption>
+            <div class="shot-badge" aria-hidden="true"><i></i> Only you see this panel</div>
           </figure>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="block" id="stealth">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">01 — Undetectable by design</div>
-            <h2>They can’t see the panel. They can’t see a recording light.</h2>
-            <p>
-              Suspicion kills more copilots than bad answers. This one is built
-              so your share stays clean and your OS privacy indicator stays off.
-            </p>
-          </div>
+    <hr class="divider wrap" />
 
-          <div class="grid-2">
-            <article class="cell">
-              <div class="num">OUTPUT</div>
-              <h3>Invisible on screenshare &amp; capture</h3>
-              <p>
-                Electron content protection keeps the overlay out of Zoom, Meet,
-                Teams, and recordings. Only you see it on your machine.
-              </p>
-              <div class="stealth-visual">
-                <div class="share-mock">
-                  <div class="bar">● Live · sharing entire screen</div>
-                  <div class="screen">their view — overlay not present</div>
-                </div>
-                <div class="ghost">panel<br />hidden<br />from share</div>
-              </div>
-              <ul class="bullets">
-                <li>
-                  <span
-                    ><strong>Hidden from their view</strong> — share and capture
-                    never include the panel</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>Still on top for you</strong> — translucent,
-                    dockable, always available while you type</span
-                  >
-                </li>
-              </ul>
-            </article>
-            <article class="cell">
-              <div class="num">INPUT</div>
-              <h3>No mic. No system recording. No privacy light.</h3>
-              <p>
-                It never listens and never asks for screen or system audio
-                capture — so the orange/green OS privacy indicator never turns
-                on mid-interview.
-              </p>
-              <div class="stealth-visual">
-                <div class="dots-off">
-                  <div class="dot-off" title="Mic off"><i></i></div>
-                  <div class="dot-off" title="Capture off"><i></i></div>
-                  <div class="cap">
-                    <strong>Privacy indicators stay off</strong>
-                    No microphone · no screen/system capture permission
-                  </div>
-                </div>
-              </div>
-              <ul class="bullets">
-                <li>
-                  <span
-                    ><strong>Page text via Chrome extension</strong> — cleaner
-                    than pixels, no screen-recording API</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No suspicious OS prompts</strong> — nothing that
-                    screams “this app is capturing the session”</span
-                  >
-                </li>
-              </ul>
-            </article>
-          </div>
+    <!-- 2. Why trust it -->
+    <section class="section" id="why">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Why it exists</div>
+          <h2>Built for the room, not the demo reel.</h2>
+          <p>Most copilots get you caught on suspicion — a visible panel, a recording light, a mouse steal. This one is designed not to.</p>
         </div>
-      </section>
-
-      <section class="block" id="yours">
-        <div class="wrap">
-          <div class="own">
-            <div class="own-copy">
-              <div class="kicker">02 — Open source on purpose</div>
-              <h2>It belongs to you.</h2>
-              <p>
-                This isn’t a locked binary with a waitlist. It’s a small
-                Electron app and a plain Chrome extension you can read, change,
-                and run on your machine. Tweak it until it fits the way
-                <em style="font-style: normal; color: #fff">you</em> interview.
-              </p>
-              <ul class="own-list">
-                <li>
-                  <code>electron/</code>
-                  <div>
-                    <strong>Change the shortcuts</strong>
-                    <span
-                      >Bindings live in one array. Remap anything that collides
-                      with your setup.</span
-                    >
-                  </div>
-                </li>
-                <li>
-                  <code>src/App.tsx</code>
-                  <div>
-                    <strong>Restyle the panel</strong>
-                    <span
-                      >Opacity, layout, fonts, section order — the UI is one
-                      React file.</span
-                    >
-                  </div>
-                </li>
-                <li>
-                  <code>electron/llm.ts</code>
-                  <div>
-                    <strong>Swap the prompt or model</strong>
-                    <span
-                      >Adjust the interview script shape, effort defaults, or
-                      provider wiring.</span
-                    >
-                  </div>
-                </li>
-                <li>
-                  <code>extension/</code>
-                  <div>
-                    <strong>Harden or simplify capture</strong>
-                    <span
-                      >Plain JS, no build step. Change what gets read from the
-                      page.</span
-                    >
-                  </div>
-                </li>
-              </ul>
-              <div class="hero-actions" style="margin: 0">
-                <a
-                  class="btn btn-solid"
-                  href="https://github.com/harry-the-nerd/open-interview-assistant"
-                  target="_blank"
-                  rel="noopener"
-                  >Fork on GitHub</a
-                >
-                <a
-                  class="btn"
-                  href="https://github.com/harry-the-nerd/open-interview-assistant/blob/main/LICENSE"
-                  target="_blank"
-                  rel="noopener"
-                  >Apache 2.0 license</a
-                >
-              </div>
+        <div class="pillars">
+          <article class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8h20v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/><path d="M9 14h6"/></svg>
             </div>
-            <div class="own-side" aria-hidden="true">
-              <header>
-                <span>your-fork</span>
-                <span>local</span>
-              </header>
-              <pre><span class="c"># make it yours</span>
+            <h3>Invisible on their share</h3>
+            <p>Content protection keeps the overlay out of Zoom, Meet, Teams, and recordings. Your interviewer sees the editor — not the panel.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>
+            </div>
+            <h3>No privacy-indicator light</h3>
+            <p>No mic. No system screen or audio capture. Nothing to light the orange/green OS privacy dot mid-interview.</p>
+          </article>
+          <article class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z" opacity=".4"/><path d="M3 12h3M18 12h3M12 3v3M12 18v3"/></svg>
+            </div>
+            <h3>Never steals the mouse</h3>
+            <p>Clicks and hovers pass through to your editor. On camera, you look like you’re just coding — because you are.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider wrap" />
+
+    <!-- 3. How it works -->
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Flow</div>
+          <h2>One shortcut. Full interview script.</h2>
+          <p>Open the question, press the hotkey, speak while you type.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <h3>Open the question</h3>
+            <p>LeetCode, a doc, a take-home brief — anything in Chrome. The extension only reads when you ask.</p>
+          </article>
+          <article class="step">
+            <h3>Press <span class="kbd">⌘⇧U</span></h3>
+            <p>Page text goes to the local overlay over loopback. Pairing is automatic after first setup.</p>
+          </article>
+          <article class="step">
+            <h3>Speak the answer</h3>
+            <p>Scroll a real interview arc: summary → clarify → approach → code → walkthrough.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider wrap" />
+
+    <!-- 4. Product surface -->
+    <section class="section" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Product</div>
+          <h2>Everything you need. Nothing sketchy.</h2>
+          <p>Small surface area. Strong defaults. Easy to change.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="n">01</div>
+            <h3>Page text, not pixels</h3>
+            <p>Chrome extension reads the page on demand — cleaner input than screenshots, no screen-recording permission.</p>
+          </article>
+          <article class="feature">
+            <div class="n">02</div>
+            <h3>Interview-arc answers</h3>
+            <p>Structured like a strong candidate talks: orient, clarify, approach, code, prove it.</p>
+          </article>
+          <article class="feature">
+            <div class="n">03</div>
+            <h3>Keyboard-only controls</h3>
+            <p>Dock, hide, scroll, opacity, effort — every action is a shortcut. No buttons to fumble on camera.</p>
+          </article>
+          <article class="feature">
+            <div class="n">04</div>
+            <h3>Local-first loopback</h3>
+            <p>Talks to 127.0.0.1 with token auth, origin checks, body caps, and rate limits.</p>
+          </article>
+          <article class="feature">
+            <div class="n">05</div>
+            <h3>Adaptive thinking</h3>
+            <p>Claude Sonnet decides how long to reason. Cycle effort when you need speed or extra care.</p>
+          </article>
+          <article class="feature">
+            <div class="n">06</div>
+            <h3>Yours to tweak</h3>
+            <p>Apache 2.0. Change shortcuts, prompts, layout, opacity — ship the version that fits you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider wrap" />
+
+    <!-- 5. Ownership -->
+    <section class="section" id="yours">
+      <div class="wrap">
+        <div class="split">
+          <div class="panel">
+            <div class="kicker">Open source on purpose</div>
+            <h2>It belongs to you.</h2>
+            <p class="lead-sm">
+              Not a locked binary with a waitlist. A small Electron app and a plain Chrome extension you can read, change, and run on your machine.
+            </p>
+            <ul class="tweak-list">
+              <li>
+                <code>electron/</code>
+                <div>
+                  <strong>Remap shortcuts</strong>
+                  <span>Bindings live in one array. Fix collisions in minutes.</span>
+                </div>
+              </li>
+              <li>
+                <code>src/App.tsx</code>
+                <div>
+                  <strong>Restyle the panel</strong>
+                  <span>Opacity, fonts, section order — the UI is one React file.</span>
+                </div>
+              </li>
+              <li>
+                <code>llm.ts</code>
+                <div>
+                  <strong>Swap prompt or model</strong>
+                  <span>Shape the interview script the way you like to speak.</span>
+                </div>
+              </li>
+              <li>
+                <code>extension/</code>
+                <div>
+                  <strong>Tune capture</strong>
+                  <span>Plain JS, no build step. Change what gets read from the page.</span>
+                </div>
+              </li>
+            </ul>
+            <div class="hero-actions" style="justify-content:flex-start;margin:0">
+              <a class="btn btn-solid" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">Fork on GitHub</a>
+              <a class="btn" href="https://github.com/harry-the-nerd/open-interview-assistant/blob/main/LICENSE" target="_blank" rel="noopener">Apache 2.0</a>
+            </div>
+          </div>
+          <div class="code-card" aria-hidden="true">
+            <header>
+              <span>your-fork</span>
+              <span>local</span>
+            </header>
+            <pre><span class="c"># make it yours</span>
 git clone .../open-interview-assistant
 cd open-interview-assistant
 npm install
 
-<span class="c"># point at your key</span>
+<span class="c"># your key</span>
 echo <span class="g">'ANTHROPIC_API_KEY=…'</span> &gt; .env
 
-<span class="c"># change a binding, a prompt, a color</span>
-<span class="c"># then run</span>
+<span class="c"># tweak a binding, a prompt, a color</span>
 npm run dev</pre>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="block" id="features">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">03 — Product surface</div>
-            <h2>Built for live interviews, not demos.</h2>
-            <p>
-              Stealth first. Then focus, answer structure, and controls that
-              never fight your editor.
-            </p>
-          </div>
-          <div class="grid-3">
-            <article class="cell">
-              <div class="num">01</div>
-              <h3>Invisible on screenshare</h3>
-              <p>
-                Content protection keeps the panel out of Zoom, Meet, Teams, and
-                recordings.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">02</div>
-              <h3>No privacy-indicator light</h3>
-              <p>
-                No microphone. No system screen/audio capture. Nothing to light
-                the OS privacy dot.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">03</div>
-              <h3>Mouse pass-through</h3>
-              <p>
-                The panel ignores the mouse completely. Clicks fall through to
-                your editor or browser.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">04</div>
-              <h3>Page text, not pixels</h3>
-              <p>
-                Chrome extension reads page text on demand — cleaner input, no
-                screen-recording permission.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">05</div>
-              <h3>Interview-arc answers</h3>
-              <p>
-                Summary → restate → clarify → approach → code → walkthrough.
-                Speak as you scroll.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">06</div>
-              <h3>Yours to tweak</h3>
-              <p>
-                Small codebase. Apache 2.0. Change shortcuts, prompts, opacity,
-                layout — ship your fork.
-              </p>
-            </article>
-          </div>
+    <hr class="divider wrap" />
+
+    <!-- 6. Install = primary conversion -->
+    <section class="section" id="install">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Get started</div>
+          <h2>Clone, key, run, load unpacked.</h2>
+          <p>Local Electron app + a plain Chrome extension. No account required.</p>
         </div>
-      </section>
-
-      <section class="block" id="how">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">04 — Flow</div>
-            <h2>One shortcut. Full interview script.</h2>
-            <p>
-              Open the question in Chrome, press the hotkey, speak from the
-              panel while you type.
-            </p>
-          </div>
-          <div class="grid-3">
-            <article class="cell">
-              <div class="num">STEP 01</div>
-              <h3>Open the question</h3>
-              <p>
-                LeetCode, a doc, a take-home brief — anything in Chrome. The
-                extension only reads when you ask.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">STEP 02</div>
-              <h3>Press <span class="kbd">⌘⇧U</span></h3>
-              <p>
-                Page text hits the local overlay over loopback. Pairing is
-                automatic after first setup.
-              </p>
-            </article>
-            <article class="cell">
-              <div class="num">STEP 03</div>
-              <h3>Speak the answer</h3>
-              <p>
-                Scroll with keyboard shortcuts. Dock left or right. Hide
-                instantly if you need a clean screen.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="arc">
-        <div class="wrap">
-          <div class="section-head">
-            <div class="kicker">05 — Answer structure</div>
-            <h2>Layout that matches a real interview arc.</h2>
-            <p>
-              Not a wall of code. A script you can scroll as you talk — the same
-              order the real app uses.
-            </p>
-          </div>
-          <div class="arc">
-            <div class="arc-left">
-              <ol>
-                <li>
-                  <span class="n">01</span>
-                  <div>
-                    <strong>Summary</strong
-                    ><span>Pinned glance sheet — key insight + complexity</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="n">02</span>
-                  <div>
-                    <strong>Restate the problem</strong
-                    ><span>Confirm constraints in your own words</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="n">03</span>
-                  <div>
-                    <strong>Ask first</strong
-                    ><span>Clarifying questions good candidates ask</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="n">04</span>
-                  <div>
-                    <strong>Talk through the approach</strong
-                    ><span>Trade-offs before you touch the keyboard</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="n">05</span>
-                  <div>
-                    <strong>Solution</strong
-                    ><span>Code with line numbers, sized to retype</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="n">06</span>
-                  <div>
-                    <strong>Walk through an example</strong
-                    ><span>Prove it works out loud</span>
-                  </div>
-                </li>
-              </ol>
-            </div>
-            <div class="arc-right" style="padding: 0">
-              <div class="mini-overlay" aria-hidden="true">
-                <div class="overlay-header">
-                  <span class="title">Interview</span>
-                  <span class="page">page · 4,812 chars</span>
-                  <span class="effort">medium</span>
-                </div>
-                <div class="ov-summary">
-                  <div class="ov-label">Summary</div>
-                  <div class="body">
-                    Binary-search the partition point on the shorter array.
-                  </div>
-                  <div class="meta">Time O(log min(m,n)) · Space O(1)</div>
-                </div>
-                <div class="ov-section">
-                  <div class="ov-label">Ask first</div>
-                  <p>Empty arrays? Even vs odd total length? Always sorted?</p>
-                </div>
-                <div class="ov-section">
-                  <div class="ov-label">Talk through the approach</div>
-                  <p>
-                    Linear merge is O(m+n). Interviewers want the log-time cut.
-                  </p>
-                </div>
-                <div class="ov-section">
-                  <div class="ov-label">Solution</div>
-                  <div class="ov-code">
-                    <div class="row">
-                      <span class="n">1</span
-                      ><span class="t">if len(a) > len(b): a, b = b, a</span>
-                    </div>
-                    <div class="row">
-                      <span class="n">2</span
-                      ><span class="t">lo, hi = 0, len(a)</span>
-                    </div>
-                    <div class="row">
-                      <span class="n">3</span
-                      ><span class="t"
-                        ># partition until left max ≤ right min</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="privacy">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">06 — Trust model</div>
-            <h2>Local-first. Least privilege. No suspicious indicators.</h2>
-            <p>
-              The extension only talks to your machine. The model only sees page
-              text you explicitly send.
-            </p>
-          </div>
-          <div class="grid-2">
-            <article class="cell">
-              <div class="num">DOES</div>
-              <h3>What this project does</h3>
-              <ul class="bullets" style="margin-top: 1rem">
-                <li>
-                  <span
-                    ><strong>Invisible on share/capture</strong> — content
-                    protection hides the panel</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>Page text only</strong> — no screenshots, no
-                    continuous capture, no system audio</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>activeTab + scripting</strong> — reads the current
-                    tab when you press the shortcut</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>Loopback-only server</strong> — 127.0.0.1 with
-                    token auth, origin checks, body caps, rate limits</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No broad host access</strong> — no “read all
-                    websites” permission</span
-                  >
-                </li>
-              </ul>
-            </article>
-            <article class="cell">
-              <div class="num">AVOIDS</div>
-              <h3>What it deliberately avoids</h3>
-              <ul class="bullets" style="margin-top: 1rem">
-                <li>
-                  <span
-                    ><strong>No microphone access</strong> — never listens, no
-                    mic privacy light</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No screen/system recording permission</strong> —
-                    nothing that triggers the capture indicator</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No mouse-stealing UI</strong> — overlays that grab
-                    clicks look unnatural on camera</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No cloud account required</strong> — bring your own
-                    Anthropic API key</span
-                  >
-                </li>
-                <li>
-                  <span
-                    ><strong>No silent re-pairing forever</strong> — recovery is
-                    a deliberate keystroke</span
-                  >
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="shortcuts">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">07 — Controls</div>
-            <h2>The complete shortcut surface.</h2>
-            <p>
-              If it’s not in this table, it isn’t a control. On Windows and
-              Linux, Ctrl replaces ⌘. Remap anything in
-              <code
-                style="
-                  font-size: 0.9em;
-                  border: 1px solid var(--line);
-                  padding: 0.1rem 0.35rem;
-                  background: #080808;
-                "
-                >electron/main.ts</code
-              >.
-            </p>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Shortcut</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="kbd">⌘⇧U</span></td>
-                  <td>
-                    <strong style="color: #fff"
-                      >Send this page and answer</strong
-                    >
-                    — the only key you need day to day
-                  </td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘↵</span></td>
-                  <td>Answer again from what was already captured</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="kbd">⌘↑</span> <span class="kbd">⌘↓</span>
-                  </td>
-                  <td>Scroll the answer</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘B</span></td>
-                  <td>Hide or show the panel</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="kbd">⌘⇧←</span> <span class="kbd">⌘⇧→</span>
-                  </td>
-                  <td>Dock left or right</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘⇧S</span></td>
-                  <td>Flip to the other side</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="kbd">⌘⇧↑</span> <span class="kbd">⌘⇧↓</span>
-                  </td>
-                  <td>Nudge the panel up or down</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘⇧E</span></td>
-                  <td>Cycle thinking effort</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘⇧O</span></td>
-                  <td>Cycle opacity</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘⇧K</span></td>
-                  <td>Show or hide the help</td>
-                </tr>
-                <tr>
-                  <td><span class="kbd">⌘R</span></td>
-                  <td>Clear everything</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="block" id="install">
-        <div class="wrap">
-          <div class="section-head center">
-            <div class="kicker">08 — Get started</div>
-            <h2>Clone, key, run, load unpacked.</h2>
-            <p>
-              Local Electron app + a plain Chrome extension. No build step for
-              the extension.
-            </p>
-          </div>
-          <div class="install">
-            <div class="code-block">
-              <header><span>terminal</span><span>setup</span></header>
-              <pre><span class="c"># clone</span>
+        <div class="install">
+          <div class="code-card">
+            <header>
+              <span>terminal</span>
+              <span>setup</span>
+            </header>
+            <pre><span class="c"># clone</span>
 git clone https://github.com/harry-the-nerd/open-interview-assistant.git
 cd open-interview-assistant
 
@@ -1754,126 +1118,101 @@ echo <span class="g">'ANTHROPIC_API_KEY=sk-ant-...'</span> &gt; .env
 
 <span class="c"># run the overlay</span>
 npm run dev</pre>
-            </div>
-            <div class="install-notes">
-              <h3>Load the extension once</h3>
-              <ol>
-                <li>
-                  Open <code>chrome://extensions</code> and enable
-                  <strong style="color: #fff">Developer mode</strong>.
-                </li>
-                <li>
-                  Click <strong style="color: #fff">Load unpacked</strong> and
-                  select the repo’s <code>extension/</code> folder.
-                </li>
-                <li>
-                  With the app running, pairing happens automatically on
-                  install, browser startup, or the first
-                  <span class="kbd">⌘⇧U</span>.
-                </li>
-                <li>
-                  If the shortcut collides, rebind it at
-                  <code>chrome://extensions/shortcuts</code> — or change the app
-                  bindings and make them yours.
-                </li>
-              </ol>
-              <div class="hero-actions" style="margin: 0">
-                <a
-                  class="btn btn-solid"
-                  href="https://github.com/harry-the-nerd/open-interview-assistant"
-                  target="_blank"
-                  rel="noopener"
-                  >Open repository</a
-                >
-                <a
-                  class="btn"
-                  href="https://github.com/harry-the-nerd/open-interview-assistant#setup"
-                  target="_blank"
-                  rel="noopener"
-                  >Full setup docs</a
-                >
-              </div>
+          </div>
+          <div class="install-notes">
+            <h3>Load the extension once</h3>
+            <ol>
+              <li>Open <code>chrome://extensions</code> and enable <strong style="color:#fff">Developer mode</strong>.</li>
+              <li><strong style="color:#fff">Load unpacked</strong> → select the repo’s <code>extension/</code> folder.</li>
+              <li>With the app running, pairing happens automatically on install or the first <span class="kbd">⌘⇧U</span>.</li>
+              <li>Shortcut collision? Rebind at <code>chrome://extensions/shortcuts</code> — or change the app bindings.</li>
+            </ol>
+            <div class="hero-actions" style="justify-content:flex-start;margin:0">
+              <a class="btn btn-solid" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">Open repository</a>
+              <a class="btn" href="https://github.com/harry-the-nerd/open-interview-assistant#setup" target="_blank" rel="noopener">Full docs</a>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="block" style="border-bottom: 0; padding-bottom: 3.5rem">
-        <div class="wrap">
-          <div class="cta">
-            <div class="kicker">From the makers of this overlay</div>
-            <h2>Want company-specific prep too?</h2>
-            <p>
-              <strong style="color: #fff">DarkInterview</strong> is the full
-              platform behind this open-source overlay — curated active question
-              banks, structured courses, and interview tracks for the companies
-              that hire.
-            </p>
-            <div class="cta-actions">
-              <a
-                class="btn btn-solid btn-lg"
-                href="https://darkinterview.com"
-                target="_blank"
-                rel="noopener"
-                >Explore darkinterview.com</a
-              >
-              <a
-                class="btn btn-lg"
-                href="https://github.com/harry-the-nerd/open-interview-assistant"
-                target="_blank"
-                rel="noopener"
-                >Stay with the open-source app</a
-              >
+        <div style="margin-top:1rem">
+          <details class="shortcuts" id="shortcuts">
+            <summary>
+              Keyboard shortcuts
+              <span>Complete control surface · Ctrl on Windows/Linux</span>
+            </summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Shortcut</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="kbd">⌘⇧U</span></td><td><strong style="color:#fff">Send this page and answer</strong> — the daily driver</td></tr>
+                  <tr><td><span class="kbd">⌘↵</span></td><td>Answer again from what was already captured</td></tr>
+                  <tr><td><span class="kbd">⌘↑</span> <span class="kbd">⌘↓</span></td><td>Scroll the answer</td></tr>
+                  <tr><td><span class="kbd">⌘B</span></td><td>Hide or show the panel</td></tr>
+                  <tr><td><span class="kbd">⌘⇧←</span> <span class="kbd">⌘⇧→</span></td><td>Dock left or right</td></tr>
+                  <tr><td><span class="kbd">⌘⇧S</span></td><td>Flip to the other side</td></tr>
+                  <tr><td><span class="kbd">⌘⇧↑</span> <span class="kbd">⌘⇧↓</span></td><td>Nudge the panel up or down</td></tr>
+                  <tr><td><span class="kbd">⌘⇧E</span></td><td>Cycle thinking effort</td></tr>
+                  <tr><td><span class="kbd">⌘⇧O</span></td><td>Cycle opacity</td></tr>
+                  <tr><td><span class="kbd">⌘⇧K</span></td><td>Show or hide help</td></tr>
+                  <tr><td><span class="kbd">⌘R</span></td><td>Clear everything</td></tr>
+                </tbody>
+              </table>
             </div>
-            <div class="cta-meta">
-              ACTIVE COMPANY QUESTIONS · SYSTEM DESIGN &amp; ML TRACKS · BUILT
-              BY PEOPLE WHO SHIP INTERVIEW TOOLS
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="wrap footer-inner">
-        <div class="footer-brand">
-          <strong>Open Interview Assistant</strong>
-          <span
-            >Open source from
-            <a
-              href="https://darkinterview.com"
-              target="_blank"
-              rel="noopener"
-              style="text-decoration: underline; text-underline-offset: 3px"
-              >DarkInterview</a
-            >
-            · Apache 2.0 · it belongs to you</span
-          >
-        </div>
-        <div class="footer-links">
-          <a
-            href="https://github.com/harry-the-nerd/open-interview-assistant"
-            target="_blank"
-            rel="noopener"
-            >GitHub</a
-          >
-          <a
-            href="https://github.com/harry-the-nerd/open-interview-assistant#setup"
-            target="_blank"
-            rel="noopener"
-            >Docs</a
-          >
-          <a href="https://darkinterview.com" target="_blank" rel="noopener"
-            >DarkInterview</a
-          >
-          <a
-            href="https://github.com/harry-the-nerd/open-interview-assistant/blob/main/LICENSE"
-            target="_blank"
-            rel="noopener"
-            >License</a
-          >
+          </details>
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- 7. Soft funnel last -->
+    <section class="section tight" id="darkinterview">
+      <div class="wrap">
+        <div class="cta">
+          <div class="kicker">From the makers of this overlay</div>
+          <h2>Want company-specific prep too?</h2>
+          <p>
+            <strong style="color:#fff">DarkInterview</strong> is the full platform behind this open-source tool —
+            curated active question banks, structured courses, and tracks for the companies that hire.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-solid btn-lg" href="https://darkinterview.com" target="_blank" rel="noopener">Explore darkinterview.com</a>
+            <a class="btn btn-lg" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">Stay with the OSS app</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>Open Interview Assistant</strong>
+        <span>Open source from <a href="https://darkinterview.com" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:3px">DarkInterview</a> · Apache 2.0 · it belongs to you</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">GitHub</a>
+        <a href="#install">Install</a>
+        <a href="https://darkinterview.com" target="_blank" rel="noopener">DarkInterview</a>
+        <a href="https://github.com/harry-the-nerd/open-interview-assistant/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="Quick action">
+    <a class="btn btn-solid" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">Clone on GitHub</a>
+  </div>
+
+  <script>
+    (function () {
+      var nav = document.getElementById("nav");
+      if (!nav) return;
+      var onScroll = function () {
+        nav.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
+</body>
 </html>
