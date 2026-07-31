@@ -4,15 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Open Interview Assistant — Invisible Open-Source Interview Overlay
+      Open Interview Assistant — Open-Source Technical Interview Practice
     </title>
     <meta
       name="description"
-      content="Open-source interview overlay for coding interviews. Invisible on Zoom/Meet/Teams screenshare, no mic or system recording permission (no privacy indicator light), mouse pass-through, keyboard-only. Fork it and make it yours. From DarkInterview."
+      content="An open-source AI assistant for technical interview practice. Turn coding problems into structured, speakable walkthroughs with a local Electron overlay, a Chrome extension, and your own API key."
     />
     <meta
       name="keywords"
-      content="interview overlay, open source interview assistant, coding interview AI, screenshare invisible overlay, no privacy indicator, mouse pass-through, Electron interview tool, Chrome extension interview helper, DarkInterview, LeetCode assistant"
+      content="technical interview practice, open source interview assistant, coding interview AI, interview walkthrough, Electron interview tool, Chrome extension interview helper, DarkInterview, LeetCode practice"
     />
     <meta name="author" content="DarkInterview" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -33,11 +33,11 @@
     <meta property="og:locale" content="en_US" />
     <meta
       property="og:title"
-      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
+      content="Open Interview Assistant — Open-Source Technical Interview Practice"
     />
     <meta
       property="og:description"
-      content="Invisible on screenshare. No mic or system capture — no privacy indicator light. Mouse pass-through, keyboard-only. Fully open source — it belongs to you."
+      content="Turn coding problems into structured, speakable walkthroughs. Bring your own API key, inspect every line, and customize the workflow."
     />
     <meta
       property="og:url"
@@ -59,11 +59,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Open Interview Assistant — Invisible Open-Source Interview Overlay"
+      content="Open Interview Assistant — Open-Source Technical Interview Practice"
     />
     <meta
       name="twitter:description"
-      content="Invisible on screenshare. No mic or system capture — no privacy light. Fork it and make it yours."
+      content="Practice explaining coding problems with a structured AI walkthrough. Bring your own key, fork the source, and make the workflow yours."
     />
     <meta
       name="twitter:image"
@@ -83,7 +83,7 @@
             "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website",
             "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
             "name": "Open Interview Assistant",
-            "description": "Open-source interview overlay that is invisible on screenshare, needs no mic or system recording permission, and is yours to fork and tweak.",
+            "description": "Open-source AI assistant for practicing technical interviews with structured, speakable coding walkthroughs.",
             "inLanguage": "en",
             "publisher": { "@id": "https://darkinterview.com/#organization" }
           },
@@ -91,14 +91,14 @@
             "@type": "WebPage",
             "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#webpage",
             "url": "https://harry-the-nerd.github.io/open-interview-assistant/",
-            "name": "Open Interview Assistant — Invisible Open-Source Interview Overlay",
+            "name": "Open Interview Assistant — Open-Source Technical Interview Practice",
             "isPartOf": {
               "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#website"
             },
             "primaryImageOfPage": {
               "@id": "https://harry-the-nerd.github.io/open-interview-assistant/#hero-image"
             },
-            "description": "Invisible on Zoom, Meet, and Teams screenshare. No privacy indicator light. Mouse pass-through interview overlay. Open source under Apache 2.0.",
+            "description": "Practice technical interviews with structured coding walkthroughs in a customizable open-source overlay. Bring your own API key and run the app on your machine.",
             "inLanguage": "en"
           },
           {
@@ -126,12 +126,12 @@
             "downloadUrl": "https://github.com/harry-the-nerd/open-interview-assistant",
             "softwareHelp": "https://harry-the-nerd.github.io/open-interview-assistant/#install",
             "image": "https://harry-the-nerd.github.io/open-interview-assistant/assets/og.png",
-            "description": "Translucent always-on-top interview overlay. Reads page text via a Chrome extension, stays invisible on screenshare, needs no microphone or system recording permission, and is fully open source.",
+            "description": "Open-source technical interview practice assistant. A Chrome extension captures the current problem on demand and a local Electron overlay presents a structured walkthrough generated with your API key.",
             "featureList": [
-              "Invisible on screenshare and screen capture",
-              "No microphone or system recording permission",
-              "No OS privacy indicator light",
-              "Mouse pass-through overlay",
+              "Structured technical interview walkthroughs",
+              "On-demand page text capture",
+              "No microphone or screen-recording permission",
+              "Bring your own Anthropic API key",
               "Keyboard-only controls",
               "Interview-arc answer layout",
               "Open source and customizable"
@@ -886,6 +886,51 @@
         background: rgba(255, 255, 255, 0.015);
       }
 
+      /* FAQ */
+      .faq-list {
+        max-width: 48rem;
+        margin: 0 auto;
+        display: grid;
+        gap: 0.65rem;
+      }
+      details.faq-item {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--bg-elev);
+        overflow: hidden;
+      }
+      details.faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      details.faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      details.faq-item summary::after {
+        content: "+";
+        color: var(--dim);
+        font-family: var(--mono);
+        font-size: 1rem;
+      }
+      details.faq-item[open] summary::after {
+        content: "–";
+      }
+      .faq-answer {
+        padding: 0 1.15rem 1.05rem;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+      .faq-answer strong {
+        color: var(--text);
+      }
+
       /* CTA */
       .cta {
         border: 1px solid var(--line-2);
@@ -1031,13 +1076,13 @@
         <nav class="nav-links" aria-label="Primary">
           <a href="#why">Why</a>
           <a href="#how">How</a>
-          <a href="#yours">Yours</a>
           <a href="#install">Install</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <div class="nav-cta">
           <a
             class="btn btn-ghost"
-            href="https://darkinterview.com"
+            href="https://darkinterview.com?utm_source=open_interview_assistant&amp;utm_medium=oss_landing&amp;utm_campaign=github_pages"
             target="_blank"
             rel="noopener"
             >DarkInterview</a
@@ -1065,17 +1110,20 @@
         <div class="wrap">
           <div class="hero-copy">
             <div class="eyebrow">
-              <i></i> Open source · Apache 2.0 · from DarkInterview
+              <i></i> Open source · Bring your own key · No app account
             </div>
-            <h1>Invisible help.<br /><em>Yours to rewrite.</em></h1>
+            <h1>Practice the interview.<br /><em>Own the workflow.</em></h1>
             <p class="lead">
-              A translucent interview overlay that reads the page and gives you
-              an answer you can say out loud — hidden from screenshare, silent
-              on permissions, fully open source.
+              Turn a coding problem into a structured walkthrough you can
+              rehearse out loud. Run the overlay on your machine, use your own
+              API key, and customize every part of the experience.
             </p>
             <div class="hero-actions">
+              <a class="btn btn-solid btn-lg" href="#install"
+                >Set it up locally</a
+              >
               <a
-                class="btn btn-solid btn-lg"
+                class="btn btn-lg"
                 href="https://github.com/harry-the-nerd/open-interview-assistant"
                 target="_blank"
                 rel="noopener"
@@ -1085,9 +1133,8 @@
                     d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.8 2.73 1.28 3.4.98.1-.76.41-1.28.74-1.57-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.42.36.79 1.08.79 2.18 0 1.57-.01 2.84-.01 3.23 0 .31.21.68.8.56A10.52 10.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5Z"
                   />
                 </svg>
-                Star &amp; clone
+                View source
               </a>
-              <a class="btn btn-lg" href="#install">Get started in 2 minutes</a>
             </div>
             <div class="proof-row">
               <span class="proof">
@@ -1100,7 +1147,7 @@
                   <path d="M2 8h20v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z" />
                   <path d="M8 8V6a4 4 0 0 1 8 0v2" />
                 </svg>
-                Hidden on share
+                Bring your own key
               </span>
               <span class="proof">
                 <svg
@@ -1112,7 +1159,7 @@
                   <circle cx="12" cy="12" r="9" />
                   <path d="M5 5l14 14" />
                 </svg>
-                No privacy light
+                No mic or screen capture
               </span>
               <span class="proof">
                 <svg
@@ -1123,7 +1170,7 @@
                 >
                   <path d="M4 7h16M4 12h10M4 17h14" />
                 </svg>
-                Mouse pass-through
+                Keyboard-first
               </span>
               <span class="proof">
                 <svg
@@ -1136,7 +1183,7 @@
                     d="M12 3l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"
                   />
                 </svg>
-                Fork &amp; tweak
+                Apache 2.0
               </span>
             </div>
           </div>
@@ -1153,7 +1200,7 @@
                 decoding="async"
               />
               <div class="shot-badge" aria-hidden="true">
-                <i></i> Live on your machine · hidden on theirs
+                <i></i> Structured walkthrough · on your machine
               </div>
             </figure>
           </div>
@@ -1167,10 +1214,11 @@
         <div class="wrap">
           <div class="section-head">
             <div class="kicker">Why it exists</div>
-            <h2>Built for the room, not the demo reel.</h2>
+            <h2>Practice explaining, not just solving.</h2>
             <p>
-              Most copilots get you caught on suspicion — a visible panel, a
-              recording light, a mouse steal. This one is designed not to.
+              Strong technical interviews require a clear thought process. The
+              overlay turns a problem into a structured guide you can rehearse,
+              question, and adapt to your own voice.
             </p>
           </div>
           <div class="pillars">
@@ -1187,11 +1235,10 @@
                   <path d="M9 14h6" />
                 </svg>
               </div>
-              <h3>Invisible on their share</h3>
+              <h3>Build a complete talk track</h3>
               <p>
-                Content protection keeps the overlay out of Zoom, Meet, Teams,
-                and recordings. Your interviewer sees the editor — not the
-                panel.
+                Move from restating the problem to clarifying questions,
+                approach, code, complexity, and a worked example.
               </p>
             </article>
             <article class="pillar">
@@ -1206,10 +1253,11 @@
                   <path d="M5 5l14 14" />
                 </svg>
               </div>
-              <h3>No privacy-indicator light</h3>
+              <h3>Capture only when you ask</h3>
               <p>
-                No mic. No system screen or audio capture. Nothing to light the
-                orange/green OS privacy dot mid-interview.
+                The Chrome extension reads the current page only when you press
+                the shortcut. It never needs microphone or screen-capture
+                access.
               </p>
             </article>
             <article class="pillar">
@@ -1225,10 +1273,10 @@
                   <path d="M3 12h3M18 12h3M12 3v3M12 18v3" />
                 </svg>
               </div>
-              <h3>Never steals the mouse</h3>
+              <h3>Keep your practice flow</h3>
               <p>
-                Clicks and hovers pass through to your editor. On camera, you
-                look like you’re just coding — because you are.
+                The mouse passes through the overlay, while keyboard shortcuts
+                handle scrolling, docking, opacity, and answer effort.
               </p>
             </article>
           </div>
@@ -1242,8 +1290,11 @@
         <div class="wrap">
           <div class="section-head">
             <div class="kicker">Flow</div>
-            <h2>One shortcut. Full interview script.</h2>
-            <p>Open the question, press the hotkey, speak while you type.</p>
+            <h2>One shortcut. A complete practice walkthrough.</h2>
+            <p>
+              Open a problem, generate a guide, then rehearse how you would
+              explain it.
+            </p>
           </div>
           <div class="steps">
             <article class="step">
@@ -1256,15 +1307,15 @@
             <article class="step">
               <h3>Press <span class="kbd">⌘⇧U</span></h3>
               <p>
-                Page text goes to the local overlay over loopback. Pairing is
-                automatic after first setup.
+                Page context reaches the local app over an authenticated
+                loopback connection, then goes to Anthropic with your API key.
               </p>
             </article>
             <article class="step">
-              <h3>Speak the answer</h3>
+              <h3>Practice the walkthrough</h3>
               <p>
-                Scroll a real interview arc: summary → clarify → approach → code
-                → walkthrough.
+                Rehearse a realistic interview arc: summary → clarify → approach
+                → code → complexity → walkthrough.
               </p>
             </article>
           </div>
@@ -1278,8 +1329,11 @@
         <div class="wrap">
           <div class="section-head">
             <div class="kicker">Product</div>
-            <h2>Everything you need. Nothing sketchy.</h2>
-            <p>Small surface area. Strong defaults. Easy to change.</p>
+            <h2>A small, transparent workflow.</h2>
+            <p>
+              Understand every step, keep control of the key, and change what
+              does not fit.
+            </p>
           </div>
           <div class="features">
             <article class="feature">
@@ -1302,16 +1356,17 @@
               <div class="n">03</div>
               <h3>Keyboard-only controls</h3>
               <p>
-                Dock, hide, scroll, opacity, effort — every action is a
-                shortcut. No buttons to fumble on camera.
+                Dock, hide, scroll, opacity, and effort are all shortcuts, so
+                your hands can stay in the editor.
               </p>
             </article>
             <article class="feature">
               <div class="n">04</div>
-              <h3>Local-first loopback</h3>
+              <h3>Transparent data path</h3>
               <p>
-                Talks to 127.0.0.1 with token auth, origin checks, body caps,
-                and rate limits.
+                Browser and overlay connect over authenticated loopback. The
+                captured URL, title, and page text go to Anthropic using your
+                key.
               </p>
             </article>
             <article class="feature">
@@ -1437,9 +1492,10 @@ npm run dev</pre>
         <div class="wrap">
           <div class="section-head">
             <div class="kicker">Get started</div>
-            <h2>Clone, key, run, load unpacked.</h2>
+            <h2>Set up the app and extension.</h2>
             <p>
-              Local Electron app + a plain Chrome extension. No account
+              Bring an Anthropic API key and allow a few minutes for the
+              one-time local setup. No Open Interview Assistant account
               required.
             </p>
           </div>
@@ -1490,14 +1546,14 @@ npm run dev</pre>
                   href="https://github.com/harry-the-nerd/open-interview-assistant"
                   target="_blank"
                   rel="noopener"
-                  >Open repository</a
+                  >View on GitHub</a
                 >
                 <a
                   class="btn"
                   href="https://github.com/harry-the-nerd/open-interview-assistant#setup"
                   target="_blank"
                   rel="noopener"
-                  >Full docs</a
+                  >Read full setup</a
                 >
               </div>
             </div>
@@ -1583,32 +1639,88 @@ npm run dev</pre>
         </div>
       </section>
 
-      <!-- 7. Soft funnel last -->
+      <!-- 7. Questions and tradeoffs -->
+      <section class="section" id="faq">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="kicker">Before you install</div>
+            <h2>Know exactly what you are running.</h2>
+            <p>
+              Open source means the useful details—and the tradeoffs—should be
+              easy to find.
+            </p>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What data is sent to the AI model?</summary>
+              <div class="faq-answer">
+                The extension reads the
+                <strong>current page only when you press the shortcut</strong>.
+                It sends the page URL, title, and extracted text to the local
+                Electron app, which then calls Anthropic with your API key. The
+                app does not request microphone or screen-recording access.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What do I need to run it?</summary>
+              <div class="faq-answer">
+                You need Node.js with npm, Chrome or a Chromium-based browser,
+                and an Anthropic API key. The app itself requires no account and
+                the Chrome extension is loaded locally.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How much does it cost?</summary>
+              <div class="faq-answer">
+                Open Interview Assistant is free under Apache 2.0. Anthropic
+                bills model usage to your API account, so cost depends on the
+                model, prompt size, and how often you generate answers.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Which platforms are supported?</summary>
+              <div class="faq-answer">
+                The Electron app targets macOS, Windows, and Linux. Use Ctrl
+                instead of Command on Windows and Linux. Window and
+                content-protection behavior can vary by OS and conferencing app,
+                so test your setup before depending on a specific behavior.
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Where should I use it?</summary>
+              <div class="faq-answer">
+                It is designed for interview practice, mock interviews,
+                take-home work, and sessions where AI assistance is explicitly
+                allowed. Follow the rules set by your interviewer, employer,
+                school, or assessment platform.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Product paths -->
       <section class="section tight" id="darkinterview">
         <div class="wrap">
           <div class="cta">
-            <div class="kicker">From the makers of this overlay</div>
-            <h2>Want company-specific prep too?</h2>
+            <div class="kicker">Open source tool + guided preparation</div>
+            <h2>Build your workflow—or follow a structured plan.</h2>
             <p>
-              <strong style="color: #fff">DarkInterview</strong> is the full
-              platform behind this open-source tool — curated active question
-              banks, structured courses, and tracks for the companies that hire.
+              <strong style="color: #fff">Open Interview Assistant</strong> is
+              the free, customizable BYOK tool.
+              <strong style="color: #fff">DarkInterview</strong>
+              adds curated question banks, structured courses, and
+              company-specific tracks.
             </p>
             <div class="cta-actions">
               <a
                 class="btn btn-solid btn-lg"
-                href="https://darkinterview.com"
+                href="https://darkinterview.com?utm_source=open_interview_assistant&amp;utm_medium=oss_landing&amp;utm_campaign=github_pages"
                 target="_blank"
                 rel="noopener"
-                >Explore darkinterview.com</a
+                >Explore guided prep</a
               >
-              <a
-                class="btn btn-lg"
-                href="https://github.com/harry-the-nerd/open-interview-assistant"
-                target="_blank"
-                rel="noopener"
-                >Stay with the OSS app</a
-              >
+              <a class="btn btn-lg" href="#install">Use the open-source app</a>
             </div>
           </div>
         </div>
@@ -1622,7 +1734,7 @@ npm run dev</pre>
           <span
             >Open source from
             <a
-              href="https://darkinterview.com"
+              href="https://darkinterview.com?utm_source=open_interview_assistant&amp;utm_medium=oss_landing&amp;utm_campaign=github_pages"
               target="_blank"
               rel="noopener"
               style="text-decoration: underline; text-underline-offset: 3px"
@@ -1639,7 +1751,11 @@ npm run dev</pre>
             >GitHub</a
           >
           <a href="#install">Install</a>
-          <a href="https://darkinterview.com" target="_blank" rel="noopener"
+          <a href="#faq">FAQ</a>
+          <a
+            href="https://darkinterview.com?utm_source=open_interview_assistant&amp;utm_medium=oss_landing&amp;utm_campaign=github_pages"
+            target="_blank"
+            rel="noopener"
             >DarkInterview</a
           >
           <a
@@ -1653,13 +1769,7 @@ npm run dev</pre>
     </footer>
 
     <div class="mobile-cta" aria-label="Quick action">
-      <a
-        class="btn btn-solid"
-        href="https://github.com/harry-the-nerd/open-interview-assistant"
-        target="_blank"
-        rel="noopener"
-        >Clone on GitHub</a
-      >
+      <a class="btn btn-solid" href="#install">View setup</a>
     </div>
 
     <script>
