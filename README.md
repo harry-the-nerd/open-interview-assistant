@@ -169,5 +169,6 @@ You may obtain a copy of the License at
 
 ## Links
 
+- Landing page: [https://harry-the-nerd.github.io/open-interview-assistant/](https://harry-the-nerd.github.io/open-interview-assistant/)
 - Website: [https://darkinterview.com](https://darkinterview.com)
 - Issues and contributions welcome via the public repository

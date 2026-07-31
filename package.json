@@ -5,7 +5,7 @@
   "description": "DarkInterview overlay — a translucent always-on-top panel driven by keyboard shortcuts. Reads page text via a Chrome extension and answers with Claude Sonnet.",
   "license": "Apache-2.0",
   "author": "DarkInterview (https://darkinterview.com)",
-  "homepage": "https://darkinterview.com",
+  "homepage": "https://harry-the-nerd.github.io/open-interview-assistant/",
   "main": "dist-electron/electron/main.js",
   "scripts": {
     "dev": "concurrently --kill-others \"vite --port 5180 --strictPort\" \"wait-on http://localhost:5180 && npm run build:electron && cross-env NODE_ENV=development electron .\"",
