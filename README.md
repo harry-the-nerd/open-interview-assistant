@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://harry-the-nerd.github.io/open-interview-assistant/">
-    <img src="docs/assets/hero.png" alt="Open Interview Assistant overlay floating over a coding interview problem" width="900" />
+    <img src="docs/assets/hero.png" alt="Open Interview Assistant running on a MacBook — overlay over a coding interview problem" width="900" />
   </a>
 </p>
 
