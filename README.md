@@ -21,6 +21,9 @@ looking at and gives you an answer you can say out loud.
 - **Mouse pass-through** — hovering and clicking fall straight through to your
   editor or browser. The panel can never steal focus. Every control is a keyboard
   shortcut.
+- **It belongs to you** — small open-source codebase. Fork it, rebind shortcuts,
+  restyle the panel, change the prompt, run it on your machine the way that works
+  best for you.
 
 ## How you use it
 
@@ -145,6 +148,20 @@ The panel sets `setContentProtection(true)`, so it does not appear in screen
 shares or recordings — only on your local display. Settings (API key, pairing
 token, effort, opacity) are saved under the Electron user-data directory; page
 text and answers are not.
+
+## Make it yours
+
+This project is meant to be forked and changed. A few high-leverage places:
+
+| Want to… | Start here |
+| --- | --- |
+| Remap shortcuts | `electron/main.ts` (one bindings array) |
+| Restyle the panel / section order | `src/App.tsx` |
+| Change opacity defaults or persistence | `electron/settings.ts`, `electron/OverlayWindow.ts` |
+| Swap prompt, model, or answer shape | `electron/llm.ts` |
+| Change what gets read from the page | `extension/` |
+
+Apache 2.0 — use it, modify it, ship your own variant.
 
 ## The model
 
