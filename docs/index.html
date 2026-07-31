@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open Interview Assistant — DarkInterview Overlay</title>
-  <meta name="description" content="Open-source interview overlay from DarkInterview. A translucent, always-on-top panel that reads the question on your screen and gives you an answer you can say out loud — no screen recording, no mouse capture." />
+  <title>Open Interview Assistant — Invisible Interview Overlay</title>
+  <meta name="description" content="Open-source interview overlay: invisible on screenshare and capture, no mic or system recording permission (no privacy indicator light), mouse pass-through, keyboard-only. Reads page text via Chrome extension." />
   <meta name="theme-color" content="#07080c" />
   <link rel="canonical" href="https://harry-the-nerd.github.io/open-interview-assistant/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Open Interview Assistant" />
-  <meta property="og:description" content="Translucent always-on-top interview overlay. Reads page text via Chrome extension. Keyboard-only. Open source from DarkInterview." />
+  <meta property="og:description" content="Invisible on screenshare. No mic or system recording permission — no privacy indicator light. Mouse pass-through interview overlay. Open source." />
   <meta property="og:url" content="https://harry-the-nerd.github.io/open-interview-assistant/" />
   <meta property="og:site_name" content="Open Interview Assistant" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Open Interview Assistant" />
-  <meta name="twitter:description" content="Translucent always-on-top interview overlay. No screen recording. Keyboard-only. Open source." />
+  <meta name="twitter:description" content="Invisible on screenshare. No mic or system capture — no privacy light. Keyboard-only interview overlay." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -673,6 +673,153 @@
       color: var(--text-muted);
     }
 
+    /* Stealth */
+    .stealth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .stealth-card {
+      position: relative;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 1.6rem 1.5rem 1.55rem;
+      overflow: hidden;
+    }
+    .stealth-card.out {
+      border-color: rgba(124, 140, 255, 0.32);
+      background:
+        radial-gradient(420px 180px at 100% 0%, rgba(124,140,255,0.16), transparent 60%),
+        var(--bg-card);
+    }
+    .stealth-card.in {
+      border-color: rgba(94, 234, 212, 0.28);
+      background:
+        radial-gradient(420px 180px at 0% 0%, rgba(94,234,212,0.12), transparent 60%),
+        var(--bg-card);
+    }
+    .stealth-card h3 {
+      font-size: 1.2rem;
+      letter-spacing: -0.025em;
+      margin: 0.55rem 0 0.55rem;
+    }
+    .stealth-card > p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.15rem;
+      line-height: 1.55;
+    }
+    .stealth-visual {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.28);
+      margin-bottom: 1.15rem;
+    }
+    .stealth-visual .mock-share {
+      flex: 1;
+      min-width: 0;
+    }
+    .stealth-visual .mock-share .bar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      margin-bottom: 0.45rem;
+    }
+    .stealth-visual .mock-share .screen {
+      height: 54px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), transparent),
+        #0a0c13;
+      position: relative;
+      overflow: hidden;
+    }
+    .stealth-visual .mock-share .screen::after {
+      content: "Their share — overlay not visible";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+    }
+    .stealth-visual .ghost-panel {
+      width: 64px;
+      height: 72px;
+      border-radius: 10px;
+      border: 1px dashed rgba(124,140,255,0.45);
+      background: rgba(124,140,255,0.08);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 0.62rem;
+      line-height: 1.25;
+      color: var(--accent);
+      font-family: var(--mono);
+      padding: 0.35rem;
+      flex-shrink: 0;
+    }
+    .privacy-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .privacy-dot {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+    .privacy-dot.orange { background: rgba(249, 115, 22, 0.18); }
+    .privacy-dot.green { background: rgba(52, 211, 153, 0.16); }
+    .privacy-dot i {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: block;
+    }
+    .privacy-dot.orange i {
+      background: #fb923c;
+      box-shadow: 0 0 0 4px rgba(251,146,60,0.2);
+    }
+    .privacy-dot.green i {
+      background: #34d399;
+      box-shadow: 0 0 0 4px rgba(52,211,153,0.18);
+    }
+    .privacy-dot::after {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 2px;
+      background: #f87171;
+      transform: rotate(-45deg);
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.35);
+    }
+    .privacy-dots .caption {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .privacy-dots .caption strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.92rem;
+      margin-bottom: 0.15rem;
+    }
+
     /* Privacy / compare */
     .compare {
       display: grid;
@@ -897,7 +1044,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .features, .steps, .arc, .compare, .install-grid {
+      .features, .steps, .arc, .compare, .install-grid, .stealth-grid {
         grid-template-columns: 1fr;
       }
       .desktop-body { grid-template-columns: 1fr; min-height: 420px; }
@@ -926,6 +1073,7 @@
         <div>Open Interview Assistant <span>/ DarkInterview</span></div>
       </a>
       <nav class="nav-links" aria-label="Primary">
+        <a href="#stealth">Invisible</a>
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="#privacy">Privacy</a>
@@ -950,11 +1098,12 @@
           Open source from <a href="https://darkinterview.com" target="_blank" rel="noopener" style="color:var(--text);font-weight:600">DarkInterview</a>
           · Apache 2.0
         </div>
-        <h1>Interview help that <span class="grad">stays out of the way</span></h1>
+        <h1>Interview help that’s <span class="grad">invisible on their screen</span></h1>
         <p class="hero-lead">
           A translucent, always-on-top overlay that reads the question on your page
-          and gives you an answer you can say out loud. No screen recording.
-          No mouse capture. Keyboard only.
+          and gives you an answer you can say out loud. Hidden from screenshare and
+          capture. No mic or system recording permission — so no orange/green privacy
+          indicator for your interviewer to notice. Keyboard only. Mouse never stolen.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="https://github.com/harry-the-nerd/open-interview-assistant" target="_blank" rel="noopener">
@@ -968,16 +1117,16 @@
         </div>
         <div class="hero-meta">
           <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            No screen-recording permission
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+            Invisible in Zoom / Meet / Teams shares
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/></svg>
+            No mic · no system capture · no privacy light
           </span>
           <span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h10M4 17h14"/></svg>
-            Mouse pass-through panel
-          </span>
-          <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h4M7 12h10M7 16h7"/></svg>
-            Claude Sonnet + adaptive thinking
+            Mouse pass-through · keyboard only
           </span>
         </div>
 
@@ -1036,38 +1185,108 @@
       </div>
     </section>
 
+    <!-- STEALTH -->
+    <section id="stealth">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="pill">Undetectable by design</div>
+          <h2>They can’t see the panel. They can’t see a recording light.</h2>
+          <p>Most “AI interview copilots” lose on suspicion risk — a visible overlay on share, or a mic/capture permission that lights up the OS privacy indicator. This one is built to avoid both.</p>
+        </div>
+
+        <div class="stealth-grid">
+          <article class="stealth-card out">
+            <div class="pill">Output side</div>
+            <h3>Invisible on screenshare &amp; capture</h3>
+            <p>The overlay uses Electron content protection so it does <strong style="color:var(--text)">not appear</strong> in Zoom, Meet, Teams, or any screen recording. Only you see it on your machine.</p>
+            <div class="stealth-visual" aria-hidden="true">
+              <div class="mock-share">
+                <div class="bar">● Live · You are sharing your screen</div>
+                <div class="screen"></div>
+              </div>
+              <div class="ghost-panel">panel<br/>hidden<br/>from share</div>
+            </div>
+            <ul class="check-list">
+              <li>
+                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                <div><strong>Hidden from their view</strong> — share and capture never include the panel</div>
+              </li>
+              <li>
+                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                <div><strong>Still on top for you</strong> — translucent, dockable, always available while you type</div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="stealth-card in">
+            <div class="pill">Input side</div>
+            <h3>No mic. No system recording. No privacy light.</h3>
+            <p>It never listens and never asks for screen or system audio capture. Your interviewer won’t see the macOS orange/green privacy indicator and wonder why you’re “recording.”</p>
+            <div class="stealth-visual" aria-hidden="true">
+              <div class="privacy-dots">
+                <div class="privacy-dot orange" title="Mic indicator off"><i></i></div>
+                <div class="privacy-dot green" title="Capture indicator off"><i></i></div>
+                <div class="caption">
+                  <strong>Privacy indicators stay off</strong>
+                  No microphone · no screen/system capture permission
+                </div>
+              </div>
+            </div>
+            <ul class="check-list">
+              <li>
+                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                <div><strong>Page text via Chrome extension</strong> — cleaner than pixels, no screen-recording API</div>
+              </li>
+              <li>
+                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                <div><strong>No suspicious OS prompts</strong> — nothing that screams “this app is capturing the session”</div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- FEATURES -->
     <section id="features">
       <div class="wrap">
         <div class="section-head">
           <div class="pill">Why it feels different</div>
           <h2>Built for live interviews, not demos</h2>
-          <p>Every design choice protects your focus — the panel helps you speak clearly without hijacking the tools you’re already using.</p>
+          <p>Stealth first — then focus, answer quality, and controls that never fight your editor.</p>
         </div>
 
         <div class="features">
           <article class="feature">
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/><path d="M9 14h6"/></svg>
             </div>
-            <h3>No screen recording</h3>
-            <p>A tiny Chrome extension reads the <strong style="color:var(--text)">text of the page</strong> — cleaner input than pixels, and zero macOS screen-recording permission.</p>
+            <h3>Invisible on screenshare</h3>
+            <p>Content protection keeps the panel out of Zoom, Meet, Teams, and recordings. Your interviewer sees your editor — not the overlay.</p>
           </article>
 
           <article class="feature">
             <div class="feature-icon teal">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z" opacity=".4"/><path d="M3 12h3M18 12h3M12 3v3M12 18v3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5 5l14 14"/><path d="M12 8v4"/></svg>
             </div>
-            <h3>Mouse pass-through</h3>
-            <p>The panel ignores the mouse completely. Hovering and clicking fall through to your editor or browser — it can never steal focus.</p>
+            <h3>No privacy-indicator light</h3>
+            <p>No microphone. No system screen/audio recording permission. Nothing to light the orange or green OS privacy dot mid-interview.</p>
           </article>
 
           <article class="feature">
             <div class="feature-icon amber">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h3M7 14h6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M9 9h6v6H9z" opacity=".4"/><path d="M3 12h3M18 12h3M12 3v3M12 18v3"/></svg>
             </div>
-            <h3>Keyboard-only controls</h3>
-            <p>No buttons. No chrome. Every action is a shortcut — send page, scroll answer, dock, hide, opacity, thinking effort.</p>
+            <h3>Mouse pass-through</h3>
+            <p>The panel ignores the mouse completely. Hovering and clicking fall through to your editor or browser — it can never steal focus on camera.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4z"/></svg>
+            </div>
+            <h3>Page text, not pixels</h3>
+            <p>A tiny Chrome extension reads the <strong style="color:var(--text)">text of the page</strong> when you press the hotkey — cleaner input than screenshots, and no screen-recording permission.</p>
           </article>
 
           <article class="feature">
@@ -1079,19 +1298,11 @@
           </article>
 
           <article class="feature">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <h3>Hidden from screen share</h3>
-            <p>Uses Electron content protection so the overlay does not appear in recordings or screen shares — only you see it.</p>
-          </article>
-
-          <article class="feature">
             <div class="feature-icon amber">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h3M7 14h6"/></svg>
             </div>
-            <h3>Adaptive thinking</h3>
-            <p>Claude Sonnet decides how long to reason. Cycle effort with a shortcut when you need speed or maximum care.</p>
+            <h3>Keyboard-only controls</h3>
+            <p>No buttons. No chrome. Every action is a shortcut — send page, scroll answer, dock, hide, opacity, thinking effort.</p>
           </article>
         </div>
       </div>
@@ -1195,8 +1406,8 @@
       <div class="wrap">
         <div class="section-head">
           <div class="pill">Trust model</div>
-          <h2>Local-first. Least privilege. Defended in depth.</h2>
-          <p>The extension only talks to your machine. The model only sees page text you explicitly send.</p>
+          <h2>Local-first. Least privilege. No suspicious indicators.</h2>
+          <p>The extension only talks to your machine. The model only sees page text you explicitly send. Nothing here lights a recording privacy indicator.</p>
         </div>
 
         <div class="compare">
@@ -1207,23 +1418,23 @@
               </span>
               What this project does
             </h3>
-            <p>Designed so the overlay can help without becoming another surveillance surface.</p>
+            <p>Designed so the overlay can help without looking like spyware on your desktop or their share.</p>
             <ul class="check-list">
               <li>
                 <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
-                <div><strong>Page text only</strong> — no screenshots, no continuous capture</div>
+                <div><strong>Invisible on share/capture</strong> — content protection hides the panel from Zoom, Meet, Teams, and recordings</div>
               </li>
               <li>
                 <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
-                <div><strong>activeTab + scripting</strong> — reads the current tab when you press the shortcut</div>
+                <div><strong>Page text only</strong> — no screenshots, no continuous capture, no system audio</div>
+              </li>
+              <li>
+                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                <div><strong>activeTab + scripting</strong> — reads the current tab only when you press the shortcut</div>
               </li>
               <li>
                 <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
                 <div><strong>Loopback-only server</strong> on 127.0.0.1 with token auth, origin checks, body caps, rate limits</div>
-              </li>
-              <li>
-                <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
-                <div><strong>Content protection</strong> — panel hidden from screen shares and recordings</div>
               </li>
               <li>
                 <span class="ico yes" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
@@ -1239,19 +1450,19 @@
               </span>
               What it deliberately avoids
             </h3>
-            <p>Common patterns in “AI interview copilots” that create risk and friction.</p>
+            <p>Common patterns in “AI interview copilots” that create suspicion and friction.</p>
             <ul class="check-list">
               <li>
                 <span class="ico no" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-                <div><strong>No always-on microphone</strong> — it never listens and never records audio</div>
+                <div><strong>No microphone access</strong> — never listens, never records audio, no mic privacy light</div>
               </li>
               <li>
                 <span class="ico no" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-                <div><strong>No screen-recording prompts</strong> — text beats pixels for coding questions anyway</div>
+                <div><strong>No screen/system recording permission</strong> — nothing that triggers the capture privacy indicator</div>
               </li>
               <li>
                 <span class="ico no" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-                <div><strong>No mouse-stealing UI</strong> — overlays that grab clicks break your flow mid-problem</div>
+                <div><strong>No mouse-stealing UI</strong> — overlays that grab clicks look unnatural on camera</div>
               </li>
               <li>
                 <span class="ico no" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span>

@@ -1,19 +1,26 @@
-# DarkInterview Overlay
+# Open Interview Assistant
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/Website-darkinterview.com-0A0A0A)](https://darkinterview.com)
+[![Landing](https://img.shields.io/badge/Landing-GitHub_Pages-0A0A0A)](https://harry-the-nerd.github.io/open-interview-assistant/)
 
 Open-source interview overlay from [DarkInterview](https://darkinterview.com) —
 a translucent, always-on-top panel that reads the interview question you're
 looking at and gives you an answer you can say out loud.
 
-It never listens and never records. It reads the **text of the page** via a
-small Chrome extension, so it needs no screen-recording permission at all —
-and page text is cleaner input than pixels, so the answers are better too.
+**Built to stay invisible in the room:**
 
-**The panel ignores the mouse completely.** Hovering and clicking pass straight
-through to whatever is underneath, so it can never take focus from your editor or
-your browser. Every control is a keyboard shortcut.
+- **Invisible on screenshare and capture** — the panel uses content protection,
+  so it does not appear in Zoom, Meet, Teams, or screen recordings. Only you see it.
+- **No mic or system recording permission** — it never listens and never asks to
+  capture the screen or system audio, so the OS privacy indicator (orange/green
+  light) does not turn on and make your interviewer suspicious.
+- **Page text, not pixels** — a small Chrome extension reads the **text of the
+  page**, which needs no screen-recording permission and is cleaner input than
+  screenshots, so the answers are better too.
+- **Mouse pass-through** — hovering and clicking fall straight through to your
+  editor or browser. The panel can never steal focus. Every control is a keyboard
+  shortcut.
 
 ## How you use it
 
@@ -88,10 +95,18 @@ complete set of controls.
 On Windows and Linux, `Ctrl` replaces `⌘`. The bindings live in one array at the
 top of [`electron/main.ts`](electron/main.ts).
 
-## Permissions
+## Permissions & stealth
 
-The extension route needs **no macOS screen-recording permission**. The extension
-asks Chrome for:
+Two properties matter in a live interview:
+
+1. **They can’t see the panel** — `setContentProtection(true)` keeps the overlay
+   out of screen shares and recordings.
+2. **They can’t see a recording light** — this app never requests microphone or
+   system screen/audio capture, so the macOS (and similar) privacy indicator does
+   not light up mid-call.
+
+The extension route needs **no screen-recording permission** and **no microphone
+permission**. It asks Chrome only for:
 
 - `activeTab` + `scripting` — read the current tab when you press the shortcut
 - `storage` — remember the pairing token
@@ -127,8 +142,9 @@ setup needs no clicks; after that, re-pairing requires a deliberate keystroke
 | `src/App.tsx` | The whole UI |
 
 The panel sets `setContentProtection(true)`, so it does not appear in screen
-shares or recordings. Settings (API key, pairing token, effort, opacity) are
-saved under the Electron user-data directory; page text and answers are not.
+shares or recordings — only on your local display. Settings (API key, pairing
+token, effort, opacity) are saved under the Electron user-data directory; page
+text and answers are not.
 
 ## The model
 
